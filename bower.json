@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "Brian's website",
-  // "repository": "https://github.com/angular/material-start",
+  "repository": "https://github.com/bderenzi/bderenzi-www",
   "license": "Apache2",
   "dependencies": {
     "angular": "^1.3.x",
