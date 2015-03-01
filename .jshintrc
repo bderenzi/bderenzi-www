@@ -14,8 +14,6 @@
   "undef": true,
   "unused": "vars",
   "strict": true,
-
-  // From material-start 
   "globalstrict": true,
   "globals": {
     "angular": false,
