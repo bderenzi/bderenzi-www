@@ -343,10 +343,6 @@ md-sidenav footer md-list {
   min-height: initial;
 }
 
-div.wrapper {
-  flex:1;
-}
-
 footer {
   display: flex;
   flex-direction:row;
@@ -373,15 +369,12 @@ md-list .md-button {
   }
 
 .headshot {
+  margin: 1em auto 0 auto;
   width: 125px;
-  margin: 0 auto;
   height: 125px;
   border-radius: 50%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-image: url($headshot-url);
-  display: flex;
 }
 /* Primary content area */
 

@@ -78,7 +78,6 @@
     $scope.selected          = null;
     $scope.avatars           = allAvatars;
     $scope.navItems          = navItems;
-    $scope.isNavLockedOpen   = isNavLockedOpen;
     $scope.toggleSidenav     = toggleSideNav;
     $scope.showActions       = showActions;
 
@@ -119,14 +118,6 @@
           $scope.avatars = [].concat(avatars);
           // $scope.selected = avatars[0];
         });
-    }
-
-    /**
-     * Query whether the nav is open or not
-     * @param menuId
-     */
-    function isNavLockedOpen( name ) {
-      return $mdSidenav(name).isLockedOpen();
     }
 
     /**
