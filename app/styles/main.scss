@@ -1,0 +1,446 @@
+/*
+ * Web Starter Kit
+ *
+ * Multi-screen layout styles for your page. Brought to you by the
+ * Web Starter Kit team.
+ *
+ */
+@import '_h5bp';
+
+/*
+ * Visual Style Guide styles
+ * Remove if you prefer to use a CSS library, like Bootstrap
+ */
+@import 'components/components';
+@import '_variables';
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  background-color: #fff;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+body.open {
+  overflow: hidden;
+}
+
+.app-bar {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #4285f4;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.app-bar-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 auto;
+}
+
+.app-bar.open,
+.app-bar.open ~ main {
+  -webkit-transform: translate(250px, 0);
+          transform: translate(250px, 0);
+}
+
+.app-bar .logo {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 2em;
+  line-height: 60px;
+  margin: 0 16px;
+  padding: 0;
+  color: #fefefe;
+  float: none;
+  max-width: none;
+  font-weight: 300;
+  display: initial;
+}
+
+.app-bar .logo a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: normal;
+}
+
+.app-bar-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: 2;
+}
+
+.app-bar button {
+  width: 60px;
+  height: 60px;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: inline-block;
+  -webkit-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-bar button img {
+  height: 24px;
+  width: 24px;
+}
+
+.app-bar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-bar button:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: 0;
+}
+
+.app-bar button:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.promote-layer {
+  /*
+  This may promote the layer to a composited
+  layer.
+
+  Replace with will-change when available
+
+  #perfmatters
+  */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.base,
+p,
+ul,
+ol {
+  font-size: 19px;
+}
+
+/** Nav */
+md-sidenav h2,
+md-sidenav h4,
+md-sidenav h5 {
+  text-align: center;
+}
+md-sidenav h4 {
+  padding-top: 0.75em;
+}
+md-sidenav .md-button {
+  padding-left: 2em;
+}
+.nav-icon {
+  line-height: 1.25em;
+  float: left;
+  font-size: 2em;
+  width: 1.5em;
+}
+.nav-text {
+  line-height: 2.5em;
+}
+
+main {
+  margin: 0 auto;
+  /* Height of the header */
+  padding: 60px 16px 16px 16px;
+  min-height: 100%;
+}
+
+/** Larger Screens - desktops and tablets **/
+@media all and (min-width: 990px) {
+  .app-bar {
+    position: relative;
+  }
+
+  .app-bar.open,
+  .app-bar.open ~ main {
+    -webkit-transform: translate(0px, 0);
+            transform: translate(0px, 0);
+  }
+
+  .app-bar-container {
+    display: block;
+    height: 130px;
+    max-width: 864px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background-color: #4285f4;
+  }
+
+  .app-bar .logo {
+    float: left;
+    margin: 0;
+    padding: 0;
+    line-height: 130px;
+    font-size: 46px;
+  }
+
+  .app-bar-actions {
+    float: right;
+  }
+
+  .app-bar::after {
+    content: ' ';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+  }
+
+  button.menu {
+    display: none;
+  }
+
+  .navdrawer-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    -webkit-transition: none;
+            transition: none;
+    overflow-y: auto;
+  }
+
+  .navdrawer-container h4 {
+    display: none;
+  }
+
+  .navdrawer-container ul {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 864px;
+    margin: 0 auto;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .navdrawer-container ul li {
+    border: none;
+  }
+
+  main {
+    max-width: 864px;
+    padding-top: 0;
+    min-height: initial;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts/RobotoCondensed-Light.eot);
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(/fonts/RobotoCondensed-Light.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Light.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/RobotoCondensed-Regular.eot);
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(/fonts/RobotoCondensed-Regular.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/RobotoCondensed-Bold.eot);
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Bold'), url(/fonts/RobotoCondensed-Bold.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: url(/fonts/RobotoCondensed-LightItalic.eot);
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(/fonts/RobotoCondensed-LightItalic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-LightItalic.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts/RobotoCondensed-Italic.eot);
+  src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'), url(/fonts/RobotoCondensed-Italic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Italic.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/fonts/RobotoCondensed-BoldItalic.eot);
+  src: local('Roboto Condensed Bold Italic'), local('RobotoCondensed-BoldItalic'), url(/fonts/RobotoCondensed-BoldItalic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-BoldItalic.woff) format('woff');
+}
+
+
+
+
+
+
+// Extras
+@import 'avatars.css';
+
+/* Toolbar area */
+
+.menuBtn {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+md-toolbar h1 {
+  margin: auto;
+}
+
+/* Sidenav area */
+md-sidenav md-list {
+  flex-direction: column;
+  min-height: 100vh;
+  display:flex;
+  padding-bottom: 0;
+}
+md-sidenav footer md-list {
+  min-height: initial;
+}
+
+div.wrapper {
+  flex:1;
+}
+
+footer {
+  display: flex;
+  flex-direction:row;
+  background-color: $colorText;
+  z-index: 1;
+  color: white;
+}
+footer a {
+  flex: 1;
+  text-align: center;
+}
+md-sidenav.md-locked-open {
+width: 250px;
+min-width: 250px;
+}
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+  md-list .md-button.selected {
+    color: $accent-color;
+  }
+
+.headshot {
+  width: 125px;
+  margin: 0 auto;
+  height: 125px;
+  border-radius: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-image: url($headshot-url);
+  display: flex;
+}
+/* Primary content area */
+
+#content {
+  overflow: hidden;
+}
+  #content md-content {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+  }
+    #content .md-button.action {
+      background-color: transparent;
+      border: none;
+      height: 38px;
+      margin: 8px auto 16px 0;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      width: 36px;
+    }
+
+    #content img {
+      display: block;
+      height: auto;
+      max-width: 500px;
+    }
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+/* Using Data-URI converted from svg until <md-icon> becomes available
+https://github.com/google/material-design-icons
+*/
+.menuBtn {
+  background: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij4NCiAgICA8cGF0aCBkPSJNMCAwaDM2djM2aC0zNnoiIGZpbGw9Im5vbmUiLz4NCiAgICA8cGF0aCBkPSJNNCAyN2gyOHYtM2gtMjh2M3ptMC04aDI4di0zaC0yOHYzem0wLTExdjNoMjh2LTNoLTI4eiIvPg0KPC9zdmc+) no-repeat  center center;
+}
+
+.actionBtn {
+  background: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij4NCiAgICA8cGF0aCBkPSJNMCAwaDM2djM2aC0zNnoiIGZpbGw9Im5vbmUiLz4NCiAgICA8cGF0aCBkPSJNNCAyN2gyOHYtM2gtMjh2M3ptMC04aDI4di0zaC0yOHYzem0wLTExdjNoMjh2LTNoLTI4eiIvPg0KPC9zdmc+) no-repeat  center center;
+}
