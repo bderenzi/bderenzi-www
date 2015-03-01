@@ -26,6 +26,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
+var modRewrite = require('connect-modrewrite');
 var reload = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
@@ -120,7 +121,7 @@ gulp.task('html', function () {
       ],
       // CSS Selectors for UnCSS to ignore
       ignore: [
-        /.navdrawer-container.open/,
+        // /.navdrawer-container.open/,
         /.app-bar.open/
       ]
     })))
@@ -151,7 +152,14 @@ gulp.task('serve', ['styles'], function () {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: ['.tmp', 'app']
+    server: {
+      baseDir:    ['.tmp', 'app'],
+      middleware: [ // Thanks: http://stackoverflow.com/questions/24474914/can-i-tell-browser-sync-to-always-use-one-html-file-for-html5mode-links
+        modRewrite([
+          '!\\.\\w+$ /index.html [L]'
+        ])
+      ]
+    }
   });
 
   gulp.watch(['app/**/*.html'], reload);
