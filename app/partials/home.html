@@ -1,5 +1,25 @@
-<md-content layout="column" flex class="md-padding">
-    <span class="fa md-accent {{selected.icon}} fa-3x" role="img" aria-label="{{selected.name}}"></span>
-    <h2>{{selected.name}}</h2>
-    <p>{{selected.content}}</p>
-</md-content>
+<div class="content-wrapper first-content" layout-gt-sm="row" layout-sm="column" >
+  <div flex="33">
+  <!-- padding: 60px 0 45px 0; -->
+    <div class="headshot" hide-sm></div>
+    <md-list>
+      <md-item ng-repeat="contact in contactInfo">
+        <md-item-content>
+          <div class="contact-item" ng-switch="!!contact.link">
+            <md-icon md-font-icon="bdr {{contact.icon}}"></md-icon>
+            <a href="{{contact.link}}" ng-switch-when="true" class="contact-link {{contact.textClass}}">{{contact.text}}</a>
+            <span href="{{contact.link}}" ng-switch-when="false" class="{{contact.textClass}}">{{contact.text}}</span>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </div>
+  <div flex="66">
+    <h1>Research Summary</h1>
+    <p>My work focuses on how technology can be applied to healthcare for underserved populations, to amplify the impact of limited resources. I have worked with stakeholders across the healthcare delivery continuum—clinicians, community health workers, and patients—to improve health services. My goal is to support and empower each of these groups with organizational and information tools that improve the health of their communities.</p>
+    <p>As technology becomes faster, cheaper, and more ubiquitous, its potential to address socially relevant issues increases exponentially. The data being collected within the health context allows us to design, deploy, and evaluate tools across the health system.</p>
+  </div>
+</div>
+<div class="content-wrapper">
+  
+</div>

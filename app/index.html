@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <body ng-app="starterApp" layout="column" ng-controller="AppCtrl">
@@ -24,9 +23,9 @@
 
     <div layout="row" flex>
 
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-sm')">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
         <md-list>
-          <div class="sidenav-header" hide-sm>
+          <div class="sidenav-header" hide-md>
             <div class="headshot" role="img" aria-label="Brian DeRenzi"></div>
             <h2>Brian DeRenzi</h2>
             <h4>University of Cape Town</h4>
@@ -35,20 +34,20 @@
           <md-item ng-repeat="it in navItems">
             <md-item-content>
               <md-button href="/{{it.link}}" ng-class="{'selected' : it === selected }" >
-                <div class="md-accent nav-icon"><i class="fa md-accent {{it.icon}}"></i></div>
+                <md-icon md-font-icon="bdr {{it.icon}}" class="nav-icon"></md-icon>
                 <div class="nav-text">{{it.text}}</div>
               </md-button>
             </md-item-content>
           </md-item>
           <md-item layout="row" class="social-icons">
               <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi">
-                <i class="fa fa-google-plus"></i>
+                <i class="bdr bdr-google-plus"></i>
               </md-button>
               <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/">
-                <i class="fa fa-flickr"></i>
+                <i class="bdr bdr-flickr2"></i>
               </md-button>
               <md-button aria-label="linkedin" href="http://www.linkedin.com/in/bderenzi">
-                <i class="fa fa-linkedin"></i>
+                <i class="bdr bdr-linkedin"></i>
               </md-button>
           </md-item>
         </md-list>
@@ -61,10 +60,10 @@
       -->
 
       <div layout="column" flex class="content-wrapper" id="content">
-        <button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
+        <button ng-click="toggleSidenav('left')" hide-gt-md class="menuBtn">
           <span class="visuallyhidden">Menu</span>
         </button>
-        <div ng-view></div>
+        <md-content flex ng-view></md-content>
       </div>
     </div>
 

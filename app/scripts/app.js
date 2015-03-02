@@ -8,7 +8,10 @@
         // Use custom theme
         $mdThemingProvider.theme('default')
           .primaryPalette('grey')
-          .accentPalette('teal');
+          .accentPalette('teal')
+          .backgroundPalette('grey',{
+            'hue-1': '500'
+          });
       })
       .config(['$routeProvider', '$locationProvider',
         function($routeProvider, $locationProvider) {
@@ -52,32 +55,84 @@
     var allAvatars = [ ];
     var navItems = [
       {
-        icon:       'fa-home',
+        icon:       'bdr bdr-home',
         text:       'Home',
         link:       'home',  
       }, {
-        icon:       'fa-user',
+        icon:       'bdr-person',
         text:       'About Me',
         link:       'bio',  
       }, {
-        icon:       'fa-edit',
-        text:       'Publication',
+        icon:       'bdr-book',
+        text:       'Publications',
         link:       'publications',  
       },{
-        icon:       'fa-calendar',
+        icon:       'bdr-calendar',
         text:       'Calendar',
         link:       'calendar',  
       },{
-        icon:       'fa-download',
+        icon:       'bdr-file-download',
         text:       'Download CV', 
         link:       'xxx',  
       },
+    ];
+    var contactInfo = [
+      {
+        icon:       'bdr bdr-email',
+        text:       'bderenzi@gmail.com',
+      }, {
+        icon:       'bdr bdr-skype',
+        text:       'brianderenzi',
+        link:       'skpe:brianderenzi?userinfo',
+      }, {
+        icon:       'bdr bdr-linkedin',
+        text:       'linkedin.com/in/bderenzi',
+        link:       'http://www.linkedin.com/in/bderenzi',  
+      },{
+        icon:       'bdr bdr-google-scholar',
+        text:       'Google Scholar',
+        link:       'http://scholar.google.com/citations?user=iVR3Ti8AAAAJ',  
+      },{
+        icon:       'bdr bdr-windows8',
+        text:       'Microsoft Academic', 
+        link:       'http://academic.research.microsoft.com/Author/3563979/',  
+      },{
+        icon:       'bdr bdr-library',
+        text:       'Room 317 Comp Sci Building',
+        textClass:  'normal-case', 
+      },{
+        icon:       'bdr',
+        text:       '18 University Avenue',
+        textClass:  'normal-case', 
+      },{
+        icon:       'bdr ',
+        text:       'University of Cape Town',
+        textClass:  'normal-case', 
+      },{
+        icon:       'bdr ',
+        text:       'Rondebosch',
+        textClass:  'normal-case', 
+      },{
+        icon:       'bdr ',
+        text:       'Cape Town, South Africa',
+        textClass:  'normal-case', 
+      },
+    ];
 
+    var reserachInterests = [
+      'ICT4D, ict4chw',
+      'Mobile health',
+      'Supervisory systems',
+      'Behavior change',
+      'Data quality',
+      'Community empowerment',
     ];
 
     $scope.selected          = null;
     $scope.avatars           = allAvatars;
     $scope.navItems          = navItems;
+    $scope.contactInfo       = contactInfo;
+    $scope.reserachInterests = reserachInterests;
     $scope.toggleSidenav     = toggleSideNav;
     $scope.showActions       = showActions;
 

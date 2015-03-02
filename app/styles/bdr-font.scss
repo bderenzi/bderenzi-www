@@ -1,0 +1,131 @@
+@font-face {
+	font-family: 'bdrcustom';
+	src:url(/fonts/bdrcustom.eot);
+	src:url(/fonts/bdrcustom.eot) format('embedded-opentype'),
+		url(/fonts/bdrcustom.woff) format('woff'),
+		url(/fonts/bdrcustom.ttf) format('truetype'),
+		url(/fonts/bdrcustom.svg) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.bdr {
+	font-family: 'bdrcustom';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.bdr-google-scholar:before {
+	content: "\e600";
+}
+
+.bdr-google-scholar-square:before {
+	content: "\e601";
+}
+
+.bdr-researchgate:before {
+	content: "\e602";
+}
+
+.bdr-researchgate-square:before {
+	content: "\e603";
+}
+
+.bdr-mendeley:before {
+	content: "\e604";
+}
+
+.bdr-mendeley-square:before {
+	content: "\e605";
+}
+
+.bdr-zotero:before {
+	content: "\e60c";
+}
+
+.bdr-zotero-square:before {
+	content: "\e60d";
+}
+
+.bdr-account-balance:before {
+	content: "\e606";
+}
+
+.bdr-home:before {
+	content: "\e607";
+}
+
+.bdr-email:before {
+	content: "\e608";
+}
+
+.bdr-file-download:before {
+	content: "\e609";
+}
+
+.bdr-person:before {
+	content: "\e60a";
+}
+
+.bdr-book:before {
+	content: "\e91f";
+}
+
+.bdr-books:before {
+	content: "\e920";
+}
+
+.bdr-library:before {
+	content: "\e921";
+}
+
+.bdr-calendar:before {
+	content: "\e953";
+}
+.bdr-google-plus:before {
+	content: "\ea88";
+}
+
+.bdr-google-plus2:before {
+	content: "\ea89";
+}
+
+.bdr-google-plus3:before {
+	content: "\ea8a";
+}
+.bdr-flickr2:before {
+	content: "\eaa1";
+}
+
+.bdr-flickr3:before {
+	content: "\eaa2";
+}
+
+.bdr-github:before {
+	content: "\eab1";
+}
+
+.bdr-windows8:before {
+	content: "\eac3";
+}
+
+.bdr-skype:before {
+	content: "\eac6";
+}
+
+.bdr-linkedin:before {
+	content: "\eac8";
+}
+
+.bdr-linkedin2:before {
+	content: "\eac9";
+}
+
