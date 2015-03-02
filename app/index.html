@@ -25,7 +25,7 @@
 
       <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
         <md-list>
-          <div class="sidenav-header" hide-md>
+          <div class="sidenav-header" hide show-gt-md>
             <div class="headshot" role="img" aria-label="Brian DeRenzi"></div>
             <h2>Brian DeRenzi</h2>
             <h4>University of Cape Town</h4>
@@ -33,21 +33,24 @@
           </div>
           <md-item ng-repeat="it in navItems">
             <md-item-content>
-              <md-button href="/{{it.link}}" ng-class="{'selected' : it === selected }" >
-                <md-icon md-font-icon="bdr {{it.icon}}" class="nav-icon"></md-icon>
+              <md-button href="/{{it.link}}" ng-class="{'selected' : it === selected, 'nav-item-highlight': it.highlight}" class="nav-item" >
+                <md-icon md-font-icon="{{it.icon}}" class="nav-icon" ></md-icon>
                 <div class="nav-text">{{it.text}}</div>
               </md-button>
             </md-item-content>
           </md-item>
           <md-item layout="row" class="social-icons">
               <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi">
-                <i class="bdr bdr-google-plus"></i>
+                <md-icon md-font-icon="bdr bdr-google-plus"></md-icon>
               </md-button>
               <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/">
-                <i class="bdr bdr-flickr2"></i>
+                <md-icon md-font-icon="bdr bdr-flickr2"></md-icon>
+              </md-button>
+              <md-button aria-label="github" href="http://github.com/bderenzi/">
+                <md-icon md-font-icon="bdr bdr-github"></md-icon>
               </md-button>
               <md-button aria-label="linkedin" href="http://www.linkedin.com/in/bderenzi">
-                <i class="bdr bdr-linkedin"></i>
+                <md-icon md-font-icon="bdr bdr-linkedin"></md-icon>
               </md-button>
           </md-item>
         </md-list>
@@ -60,9 +63,13 @@
       -->
 
       <div layout="column" flex class="content-wrapper" id="content">
-        <button ng-click="toggleSidenav('left')" hide-gt-md class="menuBtn">
-          <span class="visuallyhidden">Menu</span>
+
+        <button aria-label="menu" ng-click="toggleSidenav('left')" hide-gt-md class="menuBtn">
+          <md-icon md-font-icon="bdr bdr-menu"></md-icon>
         </button>
+        <!-- <button >
+          <span class="visuallyhidden">Menu</span>
+        </button> -->
         <md-content flex ng-view></md-content>
       </div>
     </div>

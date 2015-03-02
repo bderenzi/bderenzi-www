@@ -4,7 +4,7 @@
   angular
       .module('starterApp', ['ngMaterial', 'avatars', 'ngRoute'])
       .controller('AppCtrl', ['$scope', 'avatarsService', '$mdSidenav', '$mdBottomSheet', '$log', AvatarAppController ])
-      .config(function($mdThemingProvider) {
+      .config(function($mdThemingProvider, $mdIconProvider) {
         // Use custom theme
         $mdThemingProvider.theme('default')
           .primaryPalette('grey')
@@ -12,6 +12,8 @@
           .backgroundPalette('grey',{
             'hue-1': '500'
           });
+        $mdIconProvider
+          .icon("menu"       , "./assets/svg/menu.svg"        , 24);
       })
       .config(['$routeProvider', '$locationProvider',
         function($routeProvider, $locationProvider) {
@@ -59,20 +61,21 @@
         text:       'Home',
         link:       'home',  
       }, {
-        icon:       'bdr-person',
+        icon:       'bdr bdr-person',
         text:       'About Me',
         link:       'bio',  
       }, {
-        icon:       'bdr-book',
+        icon:       'bdr bdr-book',
         text:       'Publications',
         link:       'publications',  
       },{
-        icon:       'bdr-calendar',
+        icon:       'bdr bdr-calendar',
         text:       'Calendar',
         link:       'calendar',  
       },{
-        icon:       'bdr-file-download',
+        icon:       'bdr bdr-file-download',
         text:       'Download CV', 
+        highlight:  true,
         link:       'xxx',  
       },
     ];
