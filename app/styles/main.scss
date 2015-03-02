@@ -333,30 +333,13 @@ md-toolbar h1 {
 }
 
 /* Sidenav area */
-md-sidenav md-list {
-  flex-direction: column;
-  min-height: 100vh;
-  display:flex;
-  padding-bottom: 0;
+.social-icons {
+  margin-top: 1.5em;
+  color: $colorBlueGrey600;
 }
-md-sidenav footer md-list {
-  min-height: initial;
-}
-
-footer {
-  display: flex;
-  flex-direction:row;
-  background-color: $colorText;
-  z-index: 1;
-  color: white;
-}
-footer a {
-  flex: 1;
-  text-align: center;
-}
-md-sidenav.md-locked-open {
-width: 250px;
-min-width: 250px;
+md-sidenav, md-sidenav.md-locked-open {
+  width: $sidebar-width;
+  min-width: $sidebar-width;
 }
 md-list .md-button {
   color: inherit;
@@ -368,13 +351,20 @@ md-list .md-button {
     color: $accent-color;
   }
 
+.sidenav-header {
+  margin: 1em 0 1em 0;
+}
+
 .headshot {
-  margin: 1em auto 0 auto;
   width: 125px;
+  margin: 0 auto;
   height: 125px;
   border-radius: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: cover;
   background-image: url($headshot-url);
+  display: flex;
 }
 /* Primary content area */
 

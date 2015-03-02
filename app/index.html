@@ -25,28 +25,32 @@
     <div layout="row" flex>
 
       <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-sm')">
-        <md-list flex>
-          <div flex>
-            <div hide-sm>
-              <div class="headshot" role="img" aria-label="Brian DeRenzi"></div>
-              <h2>Brian DeRenzi</h2>
-              <h4>University of Cape Town</h4>
-              <h5>Cape Town, South Africa</h5>
-            </div>
-            <md-item ng-repeat="it in navItems">
-              <md-item-content>
-                <md-button href="/{{it.link}}" ng-class="{'selected' : it === selected }" >
-                  <div class="md-accent nav-icon"><i class="fa md-accent {{it.icon}}"></i></div>
-                  <div class="nav-text">{{it.text}}</div>
-                </md-button>
-              </md-item-content>
-            </md-item>
+        <md-list>
+          <div class="sidenav-header" hide-sm>
+            <div class="headshot" role="img" aria-label="Brian DeRenzi"></div>
+            <h2>Brian DeRenzi</h2>
+            <h4>University of Cape Town</h4>
+            <h5>Cape Town, South Africa</h5>
           </div>
-          <footer>
-              <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi"><i class="fa fa-google-plus"></i></md-button>
-              <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/"><i class="fa fa-flickr"></i></md-button>
-              <md-button aria-label="linkedin" href="http://www.linkedin.com/in/bderenzi"><i class="fa fa-linkedin"></i></md-button>
-          </footer>
+          <md-item ng-repeat="it in navItems">
+            <md-item-content>
+              <md-button href="/{{it.link}}" ng-class="{'selected' : it === selected }" >
+                <div class="md-accent nav-icon"><i class="fa md-accent {{it.icon}}"></i></div>
+                <div class="nav-text">{{it.text}}</div>
+              </md-button>
+            </md-item-content>
+          </md-item>
+          <md-item layout="row" class="social-icons">
+              <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi">
+                <i class="fa fa-google-plus"></i>
+              </md-button>
+              <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/">
+                <i class="fa fa-flickr"></i>
+              </md-button>
+              <md-button aria-label="linkedin" href="http://www.linkedin.com/in/bderenzi">
+                <i class="fa fa-linkedin"></i>
+              </md-button>
+          </md-item>
         </md-list>
       </md-sidenav>
 
