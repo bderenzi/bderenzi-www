@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
-    <title>AngularJS Material App</title>
+    <title>Brian DeRenzi</title>
 
     <meta charset="utf-8">
     <base href="/">
@@ -16,7 +16,7 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <meta name="apple-mobile-web-app-title" content="Brian DeRenzi">
     <link rel="apple-touch-icon" href="assets/images/touch/apple-touch-icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
 
-  <body ng-app="starterApp" layout="column" ng-controller="AppCtrl">
+  <body ng-app="bdrApp" layout="column" ng-controller="MenuController">
     <!--
          Use `flex` [below] to have the side bar and content area
          fill the available vertical display area
@@ -84,7 +84,20 @@
 
     <script src="assets/bower_components/angular-material/angular-material.js"></script>
 
-    <script src="scripts/app.js"></script>
+    <!--<script src="scripts/app.js"></script>-->
+    <script src="src/bdr/bdr.js"></script>
+    <script src="src/bdr/MenuController.js"></script>
+
+     <script type="text/javascript">
+      angular
+        .module('bdrApp', ['ngMaterial', 'bdr'])
+        .config(function($mdThemingProvider) {
+          // Use custom theme
+          $mdThemingProvider.theme('default')
+            .primaryPalette('grey')
+            .accentPalette('teal')
+        });
+    </script>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

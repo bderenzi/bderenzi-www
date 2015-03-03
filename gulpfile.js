@@ -43,7 +43,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // Lint JavaScript
 gulp.task('jshint', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/src/**/*.js')
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -164,7 +164,7 @@ gulp.task('serve', ['styles'], function () {
 
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/assets/styles/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['app/scripts/**/*.js'], ['jshint']);
+  gulp.watch(['app/src/**/*.js'], ['jshint']);
   gulp.watch(['app/assets/images/**/*'], reload);
 });
 

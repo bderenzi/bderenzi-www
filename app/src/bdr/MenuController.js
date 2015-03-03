@@ -1,59 +1,17 @@
 (function(){
-'use strict';
+  angular.module('bdr')
+    .controller('MenuController', [
+        '$scope', '$mdSidenav',
+        MenuController
+     ]);
 
-  angular
-      .module('starterApp', ['ngMaterial', 'ngRoute'])
-      .controller('AppCtrl', ['$scope', '$mdSidenav', '$mdBottomSheet', '$log', AvatarAppController ])
-      .config(function($mdThemingProvider, $mdIconProvider) {
-        // Use custom theme
-        $mdThemingProvider.theme('default')
-          .primaryPalette('grey')
-          .accentPalette('teal')
-          .backgroundPalette('grey',{
-            'hue-1': '500'
-          });
-        $mdIconProvider
-          .icon('menu'       , './assets/svg/menu.svg'        , 24);
-      })
-      .config(['$routeProvider', '$locationProvider',
-        function($routeProvider, $locationProvider) {
-          $routeProvider.
-            when('/home', {
-              templateUrl: 'partials/home.html',
-              navIndex: '0'
-            }).
-            when('/bio', {
-              templateUrl: 'partials/bio.html',
-              navIndex: '1'
-              // controller: 'PhoneDetailCtrl'
-            }).
-            when('/publications', {
-              templateUrl: 'partials/publications.html',
-              navIndex: '2'
-              // controller: 'PhoneDetailCtrl'
-            }).
-            when('/calendar', {
-              templateUrl: 'partials/calendar.html',
-              navIndex: '3'
-              // controller: 'PhoneDetailCtrl'
-            }).
-            otherwise({
-              redirectTo: '/home'
-            });
-
-            // use the HTML5 History API
-            // Thanks: https://scotch.io/quick-tips/pretty-urls-in-angularjs-removing-the-hashtag
-            $locationProvider.html5Mode(true);
-        }]);
-
-  /**
-   * Main Controller for the Angular Material Starter App
+   /**
+   * Main Controller for the navigation
    * @param $scope
    * @param $mdSidenav
-   * @param avatarsService
    * @constructor
    */
-  function AvatarAppController($scope, $mdSidenav, $mdBottomSheet, $log ) {
+  function MenuController($scope, $mdSidenav) {
     var navItems = [
       {
         icon:       'bdr bdr-home',
@@ -78,6 +36,8 @@
         link:       'xxx',  
       },
     ];
+
+    // TODO: refactor to a different controller
     var contactInfo = [
       {
         icon:       'bdr bdr-email',
@@ -121,6 +81,7 @@
       },
     ];
 
+    // TODO: refactor to a different controller
     var reserachInterests = [
       'ICT4D, ict4chw',
       'Mobile health',
@@ -136,12 +97,8 @@
     $scope.reserachInterests = reserachInterests;
     $scope.toggleSidenav     = toggleSideNav;
 
-    // $scope.selected = $scope.navItems[0];
-    // render();
-
     // Listen for changes to the Route. When the route
-    // changes, let's set the renderAction model value so
-    // that it can render in the Strong element.
+    // changes, update selected menu item
     $scope.$on(
       '$routeChangeSuccess',
       function( angEvent, $currentRoute, $previousRoute ){
@@ -152,7 +109,6 @@
         }
       }
     );
-
 
     // *********************************
     // Internal methods
@@ -166,7 +122,5 @@
     }
 
   }
-
-
 
 })();
