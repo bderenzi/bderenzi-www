@@ -90,16 +90,19 @@
     <script src="src/shared/MenuController.js"></script>
     <script src="src/components/home/HomeController.js"></script>
     <script src="src/components/bio/BioController.js"></script>
+    <script src="src/components/publications/PublicationsDataservice.js"></script>
+    <script src="src/components/publications/PublicationsController.js"></script>
+    <script src="src/components/publications/GroupbyFilter.js"></script>
 
      <script type="text/javascript">
       angular
-        .module('bdrApp', ['ngMaterial', 'bdr'])
-        .config(function($mdThemingProvider) {
-          // Use custom theme
-          $mdThemingProvider.theme('default')
-            .primaryPalette('grey')
-            .accentPalette('teal')
-        });
+        .module('bdrApp', ['ngMaterial', 'bdr']);
+        // .config(function($mdThemingProvider) {
+        //   // Use custom theme
+        //   $mdThemingProvider.theme('default')
+        //     .primaryPalette('grey')
+        //     .accentPalette('teal')
+        // });
     </script>
 
 

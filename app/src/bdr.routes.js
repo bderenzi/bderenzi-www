@@ -18,12 +18,12 @@
         }).
         when('/publications', {
           templateUrl: 'src/components/publications/publications.html',
-          navIndex: '2'
-          // controller: 'PhoneDetailCtrl'
+          navIndex: '2',
+          controller: 'PublicationsController'
         }).
         when('/calendar', {
           templateUrl: 'src/components/calendar/calendar.html',
-          navIndex: '3'
+          navIndex: '3',
           // controller: 'PhoneDetailCtrl'
         }).
         otherwise({

@@ -1,3 +1,24 @@
 <md-content layout="column" flex class="md-padding">
-    <p>Publications list!</p>
+  <p>Publications list!</p>
+
+  <p>
+  Search <input ng-model="query"> <br/>
+  Group by:
+<!-- <select ng-model="orderProp">
+  <option value="year">Year</option>
+  <option value="type">Type</option>
+</select>
+ -->  
+
+  <a href="" ng-click="predicate='type'; reverse=false">Type</a>
+  <a href="" ng-click="predicate='year'; reverse=true">Year</a>
+  </p>
+
+  <div ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate]">
+    <h2 ng-show="pub.group_by_CHANGED">{{pub[predicate]}}</h2>
+    <span>year: {{pub.year}}</span>
+    <span>Title: {{pub.title}}</span>
+    <span>Authors: {{pub.authors}}</span>
+  </div>
+
 </md-content>
