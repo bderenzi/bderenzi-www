@@ -3,7 +3,7 @@
 
   angular.module('bdr')
     .controller('HomeController', [
-        '$scope', '$mdSidenav',
+        '$scope',
         HomeController
      ]);
 

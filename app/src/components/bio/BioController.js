@@ -3,7 +3,7 @@
   
   angular.module('bdr')
     .controller('BioController', [
-        '$scope', '$mdSidenav',
+        '$scope',
         BioController
      ]);
 
@@ -24,7 +24,6 @@
     ];
 
     $scope.reserachInterests = reserachInterests;
-    console.log('bio load!');
   }
 
 })();
