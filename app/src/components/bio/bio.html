@@ -20,5 +20,49 @@
   </div>
 </div>
 <div class="content-wrapper">
-  
+  <div layout-gt-sm="row" layout-sm="column">
+    <div flex="50">
+      <h4>Research Positions</h4>
+      <md-list>
+        <md-item ng-repeat="p in positions | orderBy:'start':true">
+          <md-item-content>
+          <div layout="row" class="position-block">
+            <div class="position-dates">
+              <span>{{p.end}}</span><span>{{p.start}}</span>
+            </div>
+            <div flex class="position-content">
+              <h3>{{p.title}}</h3>
+              <p>
+                <em>{{p.institution}}</em><br>
+                {{p.department}}
+              </p>
+            </div>
+          </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </div>
+    <div flex="50">
+      <h4>Education &amp; Training</h4>
+      <md-list>
+        <md-item ng-repeat="e in education | orderBy:'year':true">
+          <md-item-content>
+          <div class="education-block">
+            <div layout="row" class="education-dates">
+              <span>{{e.degree}}</span><span>{{e.year}}</span>
+            </div>
+          <div layout="row">
+            <div flex class="education-content">
+              <p>
+                <strong>{{e.department}}</strong><br>
+                {{e.institution}}
+              </p>
+            </div>
+            </div>
+          </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </div>
+  </div>  
 </div>
