@@ -1,28 +1,28 @@
 (function(){
   'use strict';
 
-  // Prepare the 'bdr' module for subsequent registration of controllers and delegates
-  angular.module('bdr', [ 'ngMaterial', 'ngRoute' ])
+  // Setup the routes for the 'bdr' module
+  angular.module('bdr')
     .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
       $routeProvider.
         when('/home', {
-          templateUrl: 'src/bdr/view/home.html',
+          templateUrl: 'src/components/home/home.html',
           navIndex: '0',
           controller: 'HomeController'
         }).
         when('/bio', {
-          templateUrl: 'src/bdr/view/bio.html',
+          templateUrl: 'src/components/bio/bio.html',
           navIndex: '1',
           controller: 'BioController'
         }).
         when('/publications', {
-          templateUrl: 'src/bdr/view/publications.html',
+          templateUrl: 'src/components/publications/publications.html',
           navIndex: '2'
           // controller: 'PhoneDetailCtrl'
         }).
         when('/calendar', {
-          templateUrl: 'src/bdr/view/calendar.html',
+          templateUrl: 'src/components/calendar/calendar.html',
           navIndex: '3'
           // controller: 'PhoneDetailCtrl'
         }).
