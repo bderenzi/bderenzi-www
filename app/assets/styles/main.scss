@@ -216,8 +216,11 @@ md-list .md-button {
 #content {
   overflow: hidden;
 }
-  #content md-content div.first-content {
+  #content md-content div.first-content,
+  #content md-content div.third-content {
     background-color: rgb(243, 243, 243);
+  }
+  #content md-content div.first-content {
     a {
       color: darken($accent-color, 10%);
       text-decoration: none;
@@ -291,6 +294,99 @@ div.research-interests {
   background-color: white;
 }
 
+
+/* pubs page */
+md-card {
+  background-color: white;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.group-by {
+  padding-left: 2em;
+}
+
+.filter {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  border-radius: 2px;
+  display: block;
+  height: 40px;
+  position: relative;
+  overflow: visible; }
+  .filter input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: none;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 40px;
+    height: 40px;
+    outline: none;
+    z-index: 2;
+    background: transparent; }
+    .filter input::-ms-clear {
+      display: none; }
+  .filter button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    line-height: 20px;
+    z-index: 2;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 12px;
+    background: transparent; }
+    .filter button:after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      bottom: -6px;
+      left: -6px;
+      border-radius: 50%;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      z-index: -1; }
+    .filter button:focus:after {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1; }
+    .filter button md-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(0.9);
+              transform: translate3d(-50%, -50%, 0) scale(0.9); }
+      .filter button md-icon path {
+        stroke-width: 0; }
+    .filter button.ng-enter {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      transition: -webkit-transform 0.15s ease-out;
+      transition: transform 0.15s ease-out; }
+      .filter button.ng-enter.ng-enter-active {
+        -webkit-transform: scale(1);
+                transform: scale(1); }
+    .filter button.ng-leave {
+      transition: -webkit-transform 0.15s ease-out;
+      transition: transform 0.15s ease-out; }
+      .filter button.ng-leave.ng-leave-active {
+        -webkit-transform: scale(0);
+                transform: scale(0); }
+
+
 /* Utils */
 
 .content-wrapper {
@@ -306,4 +402,18 @@ div.research-interests {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+.affix-top {
+  position: fixed;
+  top: -25px;
+  z-index: 10;
+  width: 100%;
+  margin-right: 5px;
+}
+
+.under-affixed {
+  margin-top: 80px;
+}
+#content md-content div.first-content.affix-top:after {
+  border-color: transparent;
 }

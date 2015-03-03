@@ -1,26 +1,34 @@
-<md-content layout="column" flex class="md-padding">
-  <p>Publications list!</p>
-
-  <p>
-  Search <input ng-model="query"> <br/>
-  Group by:
-<!-- <select ng-model="orderProp">
-  <option value="year">Year</option>
-  <option value="type">Type</option>
-</select>
- -->  
-
-  <a href="" ng-click="predicate='type'; reverse=false">Type</a>
-  <a href="" ng-click="predicate='year'; reverse=true">Year</a>
-  </p>
-
-  <div ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate]">
-    <h2 ng-show="pub.group_by_CHANGED">{{pub[predicate]}}</h2>
-    <span>year: <span ng-bind-html="pub.year | highlight:query"></span></span>
-    <span>title: <span ng-bind-html="pub.title | highlight:query"></span></span>
-    <div>authors: 
-      <span ng-repeat="author in pub.authors" ng-bind-html="author | highlight:query"></span>
+<div class="content-wrapper first-content affix-top">
+<!--   <h4>Selected Publications</h4>
+</div>
+<div class="content-wrapper">
+ --><!--   <md-autocomplete md-selected-item="selectedItem" placeholder="Filter" md-search-text="searchText" md-items="item in publications" md-item-text="item.title">
+  <span md-highlight-text="searchText">{{item.display}}</span>
+</md-autocomplete> -->
+  <div layout="row" layout-align="start center">
+    <div flex="60" class="filter">
+      <input type="text" ng-model="query" placeholder="Search publications" aria-label="Filter"/>
+      <button type="button" ng-if="query" ng-click="clearFilter()">
+        <md-icon md-svg-icon="cancel"></md-icon>
+          <span class="visually-hidden">Clear</span>
+      </button>
+    </div>
+    <div flex="40" class="group-by">
+      Group by:<a href="" ng-click="predicate='type'; reverse=false">Type</a>
+      <a href="" ng-click="predicate='year'; reverse=true">Year</a>
     </div>
   </div>
+</div>
+<div class="content-wrapper under-affixed">
 
-</md-content>
+  <span ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate]">
+    <h2 ng-show="pub.group_by_CHANGED" style="border-bottom: solid 1px rgb(200,200,200">{{pub[predicate]}}</h2>
+    <md-card>
+      <span>year: <span ng-bind-html="pub.year | highlight:query"></span></span>
+      <span>title: <span ng-bind-html="pub.title | highlight:query"></span></span>
+      <div>authors: 
+        <span ng-repeat="author in pub.authors" ng-bind-html="author | highlight:query"></span>
+      </div>
+    </md-card>
+  </span>
+</div>
