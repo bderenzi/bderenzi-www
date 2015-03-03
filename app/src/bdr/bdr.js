@@ -8,11 +8,13 @@
       $routeProvider.
         when('/home', {
           templateUrl: 'partials/home.html',
-          navIndex: '0'
+          navIndex: '0',
+          controller: 'HomeController'
         }).
         when('/bio', {
           templateUrl: 'partials/bio.html',
-          navIndex: '1'
+          navIndex: '1',
+          controller: 'BioController'
         }).
         when('/publications', {
           templateUrl: 'partials/publications.html',
