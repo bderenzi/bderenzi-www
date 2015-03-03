@@ -1,7 +1,7 @@
 {
   "name": "bdr-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Brian's website",
   "repository": "https://github.com/bderenzi/bderenzi-www",
   "license": "Apache2",
