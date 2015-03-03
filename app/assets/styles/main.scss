@@ -41,6 +41,9 @@ body.open {
   overflow: hidden;
 }
 
+.highlighted {
+  background-color: yellow;
+}
 .promote-layer {
   /*
   This may promote the layer to a composited

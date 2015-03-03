@@ -16,19 +16,25 @@
     var publications = [
       {
         title:    'XMy conference paper',
-        year:     2013,
+        year:     '2013',
         type:     'conference',
         authors:  ['Brian DeRenzi','Gaetano Borriello'],
       },
       {
         title: 'My journal paper',
-        year:     2015,
+        year:     '2015',
+        type:     'journal',
+        authors: ['Brian DeRenzi','Gaetano Borriello'],
+      },
+      {
+        title: 'My journal paper',
+        year:     '2013',
         type:     'journal',
         authors: ['Brian DeRenzi','Gaetano Borriello'],
       },
       {
         title: 'Z journal paper',
-        year:     2001,
+        year:     '2001',
         type:     'journal',
         authors: ['Brian DeRenzi','Gaetano Borriello'],
       },
