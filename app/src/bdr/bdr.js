@@ -7,22 +7,22 @@
     function($routeProvider, $locationProvider) {
       $routeProvider.
         when('/home', {
-          templateUrl: 'partials/home.html',
+          templateUrl: 'src/bdr/view/home.html',
           navIndex: '0',
           controller: 'HomeController'
         }).
         when('/bio', {
-          templateUrl: 'partials/bio.html',
+          templateUrl: 'src/bdr/view/bio.html',
           navIndex: '1',
           controller: 'BioController'
         }).
         when('/publications', {
-          templateUrl: 'partials/publications.html',
+          templateUrl: 'src/bdr/view/publications.html',
           navIndex: '2'
           // controller: 'PhoneDetailCtrl'
         }).
         when('/calendar', {
-          templateUrl: 'partials/calendar.html',
+          templateUrl: 'src/bdr/view/calendar.html',
           navIndex: '3'
           // controller: 'PhoneDetailCtrl'
         }).

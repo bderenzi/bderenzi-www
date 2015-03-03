@@ -24,6 +24,7 @@
     ];
 
     $scope.reserachInterests = reserachInterests;
+    console.log('bio load!');
   }
 
 })();
