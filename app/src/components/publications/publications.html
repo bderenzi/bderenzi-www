@@ -1,4 +1,4 @@
-<div class="content-wrapper first-content affix-top">
+<div class="content-wrapper first-content">
 <!--   <h4>Selected Publications</h4>
 </div>
 <div class="content-wrapper">
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-<div class="content-wrapper under-affixed">
+<div class="content-wrapper">
 
   <span ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate]">
     <h2 ng-show="pub.group_by_CHANGED" style="border-bottom: solid 1px rgb(200,200,200">{{pub[predicate]}}</h2>

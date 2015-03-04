@@ -464,17 +464,3 @@ md-card {
   position: absolute;
   width: 1px;
 }
-.affix-top {
-  position: fixed;
-  top: -25px;
-  z-index: 10;
-  width: 100%;
-  margin-right: 5px;
-}
-
-.under-affixed {
-  margin-top: 80px;
-}
-#content md-content div.first-content.affix-top:after {
-  border-color: transparent;
-}
