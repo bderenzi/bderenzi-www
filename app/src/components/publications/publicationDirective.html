@@ -1,20 +1,39 @@
-<div class="pub md-whiteframe-z1" layout="row">
-  <img hide-sm class="pub-icon" ng-src="{{pub.pdf_icon}}">
-  <div class="pub-content" layout="column">
-    <span class="pub-title" ng-bind-html="pub.title | highlight:query"></span>
-    <div>
-      <span class="pub-author" ng-repeat="author in pub.authors" ng-class="{'author-me': author.me}">
-        <span ng-if="!$first">,</span>
-        <a ng-if="author.link" href="author.link" ng-bind-html="author.name | highlight:query"></a>
-        <span ng-if="!author.link" ng-bind-html="author.name | highlight:query"></span>
+<md-whiteframe class="pub md-whiteframe-z1" layout="column" ng-click="pub.showAbstract = !pub.showAbstract;">
+  <div class="pub-info" layout="row">
+    <img hide-sm class="pub-icon" ng-src="{{pub.pdf_icon}}">
+    <div class="pub-details" layout="column">
+      <span class="pub-title" ng-bind-html="pub.title | titleCase | highlight:query"></span>
+      <div>
+        <span class="pub-author" ng-repeat="author in pub.authors" ng-class="{'author-me': author.me}">
+          <span ng-if="!$first">,</span>
+          <a ng-if="author.link" ng-href="{{author.link}}" ng-bind-html="author.name | highlight:query"></a>
+          <span ng-if="!author.link" ng-bind-html="author.name | highlight:query"></span>
+        </span>
+      </div>
+      <div layout="row">
+        <span ng-bind-html="pub.booktitle_short | highlight:query"></span>
+        <span ng-if="pub.award">&nbsp;|&nbsp;</span>
+        <span ng-if="pub.award" class="pub-award">{{pub.award}}</span>
+        <span ng-if="pub.total_papers_admitted">&nbsp;| Acceptance Rate: {{100*pub.total_papers_admitted/pub.total_papers_submitted | number:0}}% ({{pub.total_papers_admitted}}/{{pub.total_papers_submitted}})</span>
+      </div>
+      <span ng-if="pub.keywords" class="pub-keywords">
+        keywords: <span ng-bind-html="pub.keywords | highlight:query"></span>
       </span>
     </div>
-    <div layout="row">
-      <span ng-bind-html="pub.booktitle_short | highlight:query"></span>
-      <span ng-if="pub.award">&nbsp;|&nbsp;</span>
-      <span ng-if="pub.award" class="pub-award">{{pub.award}}</span>
-      <span ng-if="pub.total_papers_admitted">&nbsp;| Acceptance Rate: {{100*pub.total_papers_admitted/pub.total_papers_submitted | number:0}}% ({{pub.total_papers_admitted}}/{{pub.total_papers_submitted}})</span>
-    </div>
-    <span ng-if="pub.keywords" class="pub-keywords">keywords: <span ng-bind-html="pub.keywords | highlight:query"></span></span>
   </div>
-</div>
+
+  <!-- links out for pubs -->
+  <span layout="row" layout-align="end end" class="pub-assets">
+    <md-button href="#" ng-click="$event.stopPropagation();"><i class="bdr bdr-cloud-download"></i></md-button>
+    <md-button ng-href="{{pub.url}}" ng-click="$event.stopPropagation();"><i class="bdr bdr-books"></i></md-button>
+    <md-button class="toggle md-primary"><i class="bdr" ng-class="{'bdr-add-circle':!pub.showAbstract,'bdr-remove-circle':pub.showAbstract,}"></i></md-button>
+    <!-- <a href="#" ng-click="$event.stopPropagation();"><i class="bdr bdr-cloud-download"></i></a>
+    <a ng-href="{{pub.url}}" ng-click="$event.stopPropagation();"><i class="bdr bdr-books"></i></a>
+    <a href="#" class="toggle"><i class="bdr" ng-class="{'bdr-add-circle':!pub.showAbstract,'bdr-remove-circle':pub.showAbstract,}"></i></a> -->
+  </span>
+
+  <div class="pub-abstract pub-info" ng-show="pub.showAbstract">
+    <h2>Abstract</h2>
+    <div ng-bind-html="pub.abstract | highlight:query"></div>
+  </div>
+</md-whiteframe>

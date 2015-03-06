@@ -365,19 +365,55 @@ md-card {
   margin-left: 0;
   margin-right: 0;
 }
+.pub-wrapper h2 {
+  border-bottom: solid 1px rgb(200,200,200);
+}
 .pub {
   background-color: white;
-  padding: 1.25em;
   margin: 0.75em 0;
   color: darken(#7F7F7F,20%);
+  cursor: pointer;
+}
+.pub-info {
+  padding: 1.25em 1.25em 0 1.25em;
+  h2 {
+    padding: 0;
+  }
+}
+.pub-abstract.ng-hide {
+/* Initially we don't want any height, and we want the contents to be hidden */
+  max-height: 0;
+  overflow: hidden;
+
+  /* Set our transitions up. */
+  -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s;
+}
+.pub-abstract {
+  max-height: 500px;
+  overflow: hidden;
+
+   /* Set our transitions up. */
+  -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s;
+}
+
+.pub-assets .md-button {
+  font-size: 1.5em;
+}
+.pub-assets a.md-button {
+  color:inherit;
 }
 .pub-icon {
   border: 1px solid #cccccc;
   min-width: 100px;
   height: 130px;
 }
-.pub-content {
+.pub-details {
   margin: 0 1em;
+  width: 100%;
 }
 .pub-keywords {
   font-size: 0.9em;
