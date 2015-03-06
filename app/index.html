@@ -98,13 +98,13 @@
 
      <script type="text/javascript">
       angular
-        .module('bdrApp', ['ngMaterial', 'bdr']);
-        // .config(function($mdThemingProvider) {
-        //   // Use custom theme
-        //   $mdThemingProvider.theme('default')
-        //     .primaryPalette('grey')
-        //     .accentPalette('teal')
-        // });
+        .module('bdrApp', ['ngMaterial', 'bdr'])
+        .config(function($mdThemingProvider) {
+          // Use custom theme
+          $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('grey')
+        });
     </script>
 
 

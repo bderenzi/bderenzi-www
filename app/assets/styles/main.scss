@@ -95,9 +95,12 @@ md-sidenav h4 {
   font-size: 2em;
   width: 1.5em;
 }
-.nav-item-highlight:hover {
+.md-button.md-default-theme:not([disabled]).nav-item-highlight:hover {
+  background-color: $accent-color;
+  color: white;
   md-icon{
-  color: $accent-color;}
+    color: white;
+  }
 }
 
 .nav-text {

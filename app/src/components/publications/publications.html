@@ -1,4 +1,7 @@
-<div class="content-wrapper first-content">
+<!-- <div class="content-wrapper first-content">
+  <h2>Selected Publications</h2>  
+</div> -->
+<div class="content-wrapper">
   <div layout="row" layout-align="start center">
     
     <div flex="70" class="filter">
@@ -23,8 +26,8 @@
 
   </div>
 </div>
-<div class="content-wrapper">
 
+<div class="content-wrapper third-content">
   <span ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate]">
     <h2 ng-show="pub.group_by_CHANGED" style="border-bottom: solid 1px rgb(200,200,200">{{pub[predicate]}}</h2>
     <publication pub="pub" query="query"></publication>
