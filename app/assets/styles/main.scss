@@ -372,10 +372,8 @@ md-card {
 }
 .pub_icon {
   border: 1px solid #cccccc;
-  // min-width: 80px;
   min-width: 100px;
   height: 130px;
-  // display: inline;
 }
 .pub_content {
   margin: 0 1em;
@@ -385,7 +383,6 @@ md-card {
 }
 
 .pub_title {
-  // display: inline;
   font-size: 1.25em;
   &:first-letter {
     text-transform: uppercase;
