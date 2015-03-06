@@ -20,6 +20,8 @@
     })
     .filter('titleCase', function() {
         // Inspired by: https://gist.github.com/maruf-nc/5625869
+        // This doesn't work if it starts with "a" or "the". For that I'm 
+        // using CSS to style the :first-letter
         return function(str) {
           var smallwords = ['a','an','and','as','at','but','by','en','for','if','in','nor','of','on','or','per','the','to','vs','via',];
           return (str === undefined || str === null) ? '' : str.replace(/_|-/, ' ').replace(/\w\S*/g, function(txt){
