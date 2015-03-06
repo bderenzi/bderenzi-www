@@ -1,7 +1,8 @@
 <md-card>
   <span>year: <span ng-bind-html="pub.year | highlight:query"></span></span>
-  <span>title: <span ng-bind-html="pub.title | highlight:query"></span></span>
+  <span>title: <span ng-bind-html="pub.title | titleCase | highlight:query"></span></span>
   <div>authors: 
-    <span ng-repeat="author in pub.author track by $index" ng-bind-html="author | highlight:query"></span>
+    <span ng-bind-html="pub.author | highlight:query"></span>
   </div>
+  <span ng-if="pub.keywords">keywords: <span ng-bind-html="pub.keywords | highlight:query"></span></span>
 </md-card>

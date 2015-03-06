@@ -6,7 +6,8 @@
       return {
         restrict:     'E',
         scope: {
-          pub:  '=',
+          pub:        '=',
+          query:      '=',
         },
         templateUrl:  'src/components/publications/publicationDirective.html',
       };
