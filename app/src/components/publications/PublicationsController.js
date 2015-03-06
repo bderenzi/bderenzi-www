@@ -24,7 +24,10 @@
     publicationsService
       .loadAll()
       .then(function(pubs) {
-        $scope.publications = [].concat(pubs);
+        $scope.publications = pubs;
+      },
+      function(d) {
+        console.log('error??')
       });
 
     function clearFilter() {
