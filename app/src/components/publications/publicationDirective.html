@@ -1,8 +1,13 @@
-<md-card>
-  <span>year: <span ng-bind-html="pub.year | highlight:query"></span></span>
-  <span>title: <span ng-bind-html="pub.title | titleCase | highlight:query"></span></span>
-  <div>authors: 
+<div class="pub md-whiteframe-z1" layout="row">
+  <img class="pub_icon" ng-src="{{pub.pdf_icon}}">
+  <div class="pub_content" layout="column">
+    <span class="pub_title" ng-bind-html="pub.title | highlight:query"></span>
+    <!-- TODO: fix authors -->
     <span ng-bind-html="pub.author | highlight:query"></span>
+    <div layout="row">
+      <span ng-bind-html="pub.booktitle_short | highlight:query"></span>
+      <span>&nbsp; | Acceptance Rate: {{100*pub.total_papers_admitted/pub.total_papers_submitted | number:0}}% ({{pub.total_papers_admitted}}/{{pub.total_papers_submitted}})</span>
+    </div>
+    <span class="pub_keywords">keywords: <span ng-bind-html="pub.keywords | highlight:query"></span></span>
   </div>
-  <span ng-if="pub.keywords">keywords: <span ng-bind-html="pub.keywords | highlight:query"></span></span>
-</md-card>
+</div>

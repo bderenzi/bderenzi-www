@@ -25,6 +25,7 @@
       .loadAll()
       .then(function(pubs) {
         $scope.publications = pubs;
+        fixAuthors();
       },
       function(d) {
         console.log('error.');
@@ -32,6 +33,12 @@
 
     function clearFilter() {
       $scope.query = '';
+    }
+
+
+    // Internal functions
+    function fixAuthors() {
+      // TODO
     }
 
   }
