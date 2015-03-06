@@ -13,6 +13,16 @@
    * @constructor
    */
   function PublicationsController($scope, publicationsService) {
+    // Local variables
+    var me          = 'DeRenzi';
+    var authorSites = {
+      birnbaum:   'http://www.bbirnbaum.com/',
+      borriello:  'http://homes.cs.washington.edu/~gaetano/',
+      findlater:  'http://terpconnect.umd.edu/~leahkf/',
+      parikh:     'http://people.ischool.berkeley.edu/~parikh/',
+      anokwa:     'http://www.anokwa.com/',
+      kastner:    'http://kastner.ucsd.edu/',
+    };
 
     $scope.publications     = [ ];
     $scope.clearFilter      = clearFilter;
@@ -37,8 +47,45 @@
 
 
     // Internal functions
+    /*
+     * fixAuthors()
+     *
+     * Assumes that the publications variable has been filled.
+     */
     function fixAuthors() {
-      // TODO
+      for (var i = $scope.publications.length - 1; i >= 0; i--) {
+        var pub     = $scope.publications[i];
+        var authors = pub.author.split(' and ');
+
+        $scope.publications[i].authors = [];
+        
+        for (var j = authors.length - 1; j >= 0; j--) {
+          var names     = authors[j].split(',');
+          var lastName  = String(names[0]).trim();
+          var firstName = String(names[1]).trim();
+
+          if(lastName.toLowerCase() === me.toLowerCase()) {
+            $scope.publications[i].authors.unshift({
+              name:   firstName + ' ' + me,
+              me:     true,
+            });
+          } else {
+            if(firstName.indexOf(' ') >= 0) {
+              var initials = firstName.split(' ');
+              firstName = '';
+              for (var z = 0; z < initials.length; z++) {
+                firstName = firstName + initials[z][0] + '.';
+              }
+            } else {
+              firstName = firstName[0] + '. ';
+            }
+            $scope.publications[i].authors.unshift({
+              name:   firstName + ' ' + lastName,
+              link:   authorSites[lastName.toLowerCase()],
+            });
+          }
+        }
+      }
     }
 
   }

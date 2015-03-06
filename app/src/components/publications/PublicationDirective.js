@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('bdr')
-    .directive('publication', function() {
+    .directive('bdrPublication', function() {
       return {
         restrict:     'E',
         scope: {
