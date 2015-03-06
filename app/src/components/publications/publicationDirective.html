@@ -2,14 +2,13 @@
   <img hide-sm class="pub-icon" ng-src="{{pub.pdf_icon}}">
   <div class="pub-content" layout="column">
     <span class="pub-title" ng-bind-html="pub.title | highlight:query"></span>
-    <!-- TODO: fix authors -->
     <div>
       <span class="pub-author" ng-repeat="author in pub.authors" ng-class="{'author-me': author.me}">
-        <a ng-if="author.link" href="author.link">{{author.name | highlight:query}}<span>{{$last ? '' : ',&nbsp;'}}</span></a>
-        <span ng-if="!author.link">{{author.name | highlight:query}}<span>{{$last ? '' : ',&nbsp;'}}</span></span>
+        <span ng-if="!$first">,</span>
+        <a ng-if="author.link" href="author.link" ng-bind-html="author.name | highlight:query"></a>
+        <span ng-if="!author.link" ng-bind-html="author.name | highlight:query"></span>
       </span>
     </div>
-    <!-- <span ng-bind-html="pub.author | highlight:query"></span> -->
     <div layout="row">
       <span ng-bind-html="pub.booktitle_short | highlight:query"></span>
       <span ng-if="pub.award">&nbsp;|&nbsp;</span>

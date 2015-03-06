@@ -369,6 +369,7 @@ md-card {
   background-color: white;
   padding: 1.25em;
   margin: 0.75em 0;
+  color: darken(#7F7F7F,20%);
 }
 .pub-icon {
   border: 1px solid #cccccc;
@@ -383,6 +384,8 @@ md-card {
 }
 
 .pub-title {
+  color: rgba(0, 0, 0, 0.870588);
+  font-weight: 350;
   font-size: 1.25em;
   &:first-letter {
     text-transform: uppercase;
@@ -390,6 +393,7 @@ md-card {
 }
 .author-me {
   font-weight: 500;
+  color: rgba(20, 20, 20, 0.870588);
 }
 .pub-author {
   float: left;
