@@ -23,12 +23,6 @@
 
   <span ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate]">
     <h2 ng-show="pub.group_by_CHANGED" style="border-bottom: solid 1px rgb(200,200,200">{{pub[predicate]}}</h2>
-    <md-card>
-      <span>year: <span ng-bind-html="pub.year | highlight:query"></span></span>
-      <span>title: <span ng-bind-html="pub.title | highlight:query"></span></span>
-      <div>authors: 
-        <span ng-repeat="author in pub.authors" ng-bind-html="author | highlight:query"></span>
-      </div>
-    </md-card>
+    <publication pub="pub"></publication>
   </span>
 </div>

@@ -36,7 +36,7 @@
     <div layout="row" flex>
 
       <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
-        <md-list>
+        <md-list ng-cloak>
           <div class="sidenav-header" hide show-gt-md>
             <div class="headshot" role="img" aria-label="Brian DeRenzi"></div>
             <h2>Brian DeRenzi</h2>
@@ -91,6 +91,7 @@
     <script src="src/components/home/HomeController.js"></script>
     <script src="src/components/bio/BioController.js"></script>
     <script src="src/components/publications/PublicationsDataservice.js"></script>
+    <script src="src/components/publications/PublicationDirective.js"></script>
     <script src="src/components/publications/PublicationsController.js"></script>
     <script src="src/components/publications/GroupbyFilter.js"></script>
     <script src="src/components/publications/HighlightFilter.js"></script>

@@ -1,0 +1,7 @@
+<md-card>
+  <span>year: <span ng-bind-html="pub.year | highlight:query"></span></span>
+  <span>title: <span ng-bind-html="pub.title | highlight:query"></span></span>
+  <div>authors: 
+    <span ng-repeat="author in pub.authors" ng-bind-html="author | highlight:query"></span>
+  </div>
+</md-card>
