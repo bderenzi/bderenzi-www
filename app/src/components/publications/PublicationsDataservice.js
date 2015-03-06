@@ -18,7 +18,7 @@
           var def = $q.defer();
           $http.get('/assets/bderenzi_citations.json')
             .success(function(data,status,headers,config) {
-              def.resolve(data)
+              def.resolve(data);
             })
             .error(function() {
               def.reject('Failed to load publications.');

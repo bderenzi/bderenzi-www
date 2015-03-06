@@ -365,6 +365,16 @@ md-card {
 
 .group-by {
   padding-left: 2em;
+  .md-button {
+    min-width: 5em;
+
+  }
+  // Give 3d look if active
+  .md-button.active {
+    -webkit-transform: translate3d(0, -1px, 0);
+    transform: translate3d(0, -1px, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  }
 }
 
 .filter {

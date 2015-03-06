@@ -27,7 +27,7 @@
         $scope.publications = pubs;
       },
       function(d) {
-        console.log('error??')
+        console.log('error.');
       });
 
     function clearFilter() {

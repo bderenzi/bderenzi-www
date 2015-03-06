@@ -1,7 +1,7 @@
 <div class="content-wrapper first-content">
   <div layout="row" layout-align="start center">
     
-    <div flex="60" class="filter">
+    <div flex="70" class="filter">
       <input type="text" ng-model="query" placeholder="Search publications" aria-label="Filter"/>
       <button type="button" ng-if="query" ng-click="clearFilter()">
         <md-icon md-svg-icon="cancel"></md-icon>
@@ -9,9 +9,16 @@
       </button>
     </div>
 
-    <div flex="40" class="group-by">
-      Group by:<a href="" ng-click="predicate='pub_type'; reverse=false">Type</a>
-      <a href="" ng-click="predicate='year'; reverse=true">Year</a>
+    <div flex="30" class="group-by">
+      <!-- Group by:<a href="" ng-click="predicate='pub_type'; reverse=false">Type</a>
+      <a href="" ng-click="predicate='year'; reverse=true">Year</a> -->
+
+      <md-button class="md-raised" ng-class="{'md-primary': predicate=='pub_type','active': predicate=='pub_type'}" ng-click="predicate='pub_type'; reverse=false">
+        Type
+      </md-button>
+      <md-button class="md-raised" ng-class="{'md-primary': predicate=='year','active': predicate=='year'}" ng-click="predicate='year'; reverse=true">
+        Year
+      </md-button>
     </div>
 
   </div>
@@ -22,5 +29,5 @@
     <h2 ng-show="pub.group_by_CHANGED" style="border-bottom: solid 1px rgb(200,200,200">{{pub[predicate]}}</h2>
     <publication pub="pub" query="query"></publication>
   </span>
-  
+
 </div>
