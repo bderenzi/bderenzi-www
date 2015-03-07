@@ -32,7 +32,7 @@
     <a href="#" class="toggle"><i class="bdr" ng-class="{'bdr-add-circle':!pub.showAbstract,'bdr-remove-circle':pub.showAbstract,}"></i></a> -->
   </span>
 
-  <div class="pub-abstract pub-info" ng-show="pub.showAbstract">
+  <div class="pub-abstract" ng-show="pub.showAbstract">
     <h2>Abstract</h2>
     <div ng-bind-html="pub.abstract | highlight:query"></div>
   </div>

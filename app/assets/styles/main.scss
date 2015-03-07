@@ -398,6 +398,13 @@ md-card {
   -webkit-transition: max-height 0.8s;
   -moz-transition: max-height 0.8s;
   transition: max-height 0.8s;
+
+  padding: 1.25em;
+
+  h2 {
+    border: none;
+    padding: 0;
+  }
 }
 
 .pub-assets .md-button {
