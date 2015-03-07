@@ -457,7 +457,6 @@ md-card {
   padding-left: 2em;
   .md-button {
     min-width: 5em;
-
   }
   // Give 3d look if active
   .md-button.active {
@@ -486,7 +485,7 @@ md-card {
     padding: 0 15px;
     font-size: 14px;
     line-height: 40px;
-    height: 40px;
+    height: $pubsSearchHeight;
     outline: none;
     z-index: 2;
     background: transparent; }
