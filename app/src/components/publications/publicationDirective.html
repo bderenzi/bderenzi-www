@@ -24,9 +24,20 @@
 
   <!-- links out for pubs -->
   <span layout="row" layout-align="end end" class="pub-assets">
-    <md-button href="#" ng-click="$event.stopPropagation();"><i class="bdr bdr-cloud-download"></i></md-button>
-    <md-button ng-href="{{pub.url}}" ng-click="$event.stopPropagation();"><i class="bdr bdr-books"></i></md-button>
-    <md-button class="toggle md-primary"><i class="bdr" ng-class="{'bdr-add-circle':!pub.showAbstract,'bdr-remove-circle':pub.showAbstract,}"></i></md-button>
+    <md-button 
+      ng-click="$event.stopPropagation();" 
+      aria-label="download paper">
+      <i class="bdr bdr-cloud-download"></i>
+    </md-button>
+    <md-button 
+      ng-href="{{pub.url}}" 
+      ng-click="$event.stopPropagation();"
+      aria-label="view doi">
+      <i class="bdr bdr-books"></i>
+    </md-button>
+    <md-button class="toggle md-primary" aria-label="toggle abstract">
+      <i class="bdr" ng-class="{'bdr-add-circle':!pub.showAbstract,'bdr-remove-circle':pub.showAbstract,}"></i>
+    </md-button>
     <!-- <a href="#" ng-click="$event.stopPropagation();"><i class="bdr bdr-cloud-download"></i></a>
     <a ng-href="{{pub.url}}" ng-click="$event.stopPropagation();"><i class="bdr bdr-books"></i></a>
     <a href="#" class="toggle"><i class="bdr" ng-class="{'bdr-add-circle':!pub.showAbstract,'bdr-remove-circle':pub.showAbstract,}"></i></a> -->

@@ -450,7 +450,7 @@ md-card {
   }
 }
 .pub-award {
-  color: #b71c1c;
+  color: $highlightColor;
 }
 
 .group-by {
@@ -546,6 +546,64 @@ md-card {
         -webkit-transform: scale(0);
                 transform: scale(0); }
 
+
+/* Calendar page */
+.calendar-header {
+  & > div {
+    font-size: 2em;
+    text-align: center;
+  }
+  .md-button {
+    // width: 15em
+    padding: 0 1em;
+    height: 2em;
+  }
+}
+
+.calendar {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1em;
+  width: 100%;
+  thead td {
+    text-align: center;
+    width: $dayWidth;
+    border-top: solid 1px #ddd;
+  }
+
+  td {
+    border-bottom: solid 1px #eee;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    padding: 0;
+    vertical-align: top;
+    height: $hourHeight/2;
+    position: relative;
+  }
+
+  .major-row td {
+    border-bottom-color: #ddd;
+  }
+
+  .time {
+    width: 3em;
+    text-align: right;
+    padding-right: 0.25em;
+  }
+}
+.event {
+  position: absolute;
+  z-index: 1;
+  width: 85%;
+  background-color: lighten($highlightColor,20%);
+  border: 1px solid $highlightColor;
+
+  div {
+    font-size: 0.9em;
+    line-height: 1em;
+    text-align: center;
+  }
+}
 
 /* Utils */
 

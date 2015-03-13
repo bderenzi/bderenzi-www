@@ -24,7 +24,7 @@
         when('/calendar', {
           templateUrl: 'src/components/calendar/calendar.html',
           navIndex: '3',
-          // controller: 'PhoneDetailCtrl'
+          controller: 'CalendarController'
         }).
         otherwise({
           redirectTo: '/home'

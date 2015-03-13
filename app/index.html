@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="assets/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="styles/main.css">
+
   </head>
 
   <body ng-app="bdrApp" layout="column" ng-controller="MenuController">
@@ -35,7 +36,7 @@
 
     <div layout="row" flex>
 
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <md-list ng-cloak>
           <div class="sidenav-header" hide show-gt-md>
             <div class="headshot" role="img" aria-label="Brian DeRenzi"></div>
@@ -55,9 +56,9 @@
               <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi">
                 <md-icon md-font-icon="bdr bdr-google-plus"></md-icon>
               </md-button>
-              <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/">
+              <!-- <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/">
                 <md-icon md-font-icon="bdr bdr-flickr2"></md-icon>
-              </md-button>
+              </md-button> -->
               <md-button aria-label="github" href="http://github.com/bderenzi/">
                 <md-icon md-font-icon="bdr bdr-github"></md-icon>
               </md-button>
@@ -84,15 +85,19 @@
 
     <script src="assets/bower_components/angular-material/angular-material.js"></script>
 
-    <!--<script src="scripts/app.js"></script>-->
     <script src="src/bdr.module.js"></script>
     <script src="src/bdr.routes.js"></script>
+    
     <script src="src/shared/MenuController.js"></script>
     <script src="src/components/home/HomeController.js"></script>
     <script src="src/components/bio/BioController.js"></script>
+    <script src="src/components/calendar/CalendarController.js"></script>
+    <script src="src/components/calendar/CalendarDataservice.js"></script>
+
     <script src="src/components/publications/PublicationsDataservice.js"></script>
     <script src="src/components/publications/PublicationDirective.js"></script>
     <script src="src/components/publications/PublicationsController.js"></script>
+
     <script src="src/components/publications/GroupbyFilter.js"></script>
     <script src="src/components/publications/HighlightFilter.js"></script>
 
