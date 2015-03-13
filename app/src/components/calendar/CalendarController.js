@@ -13,8 +13,7 @@
    * @constructor
    */
   function CalendarController($scope, calendarService) {
-    var MONDAY = 1,
-        FRIDAY = 5;
+    var MONDAY = 1;
 
     // Vars
     $scope.startTime      = 8;
@@ -77,22 +76,22 @@
     function range(min, max, step){
       step = step || 1;
       var input = [];
-      for (var i = min; i <= max; i += step) input.push(i);
+      for (var i = min; i <= max; i += step){ input.push(i); }
       return input;
-    };
+    }
 
     // Internal functions
     function _getKey(days, hours) {
       var key = $scope.monday.addDays(days);
       var minutes = 0;
-      if(Math.floor(hours) != hours) {
+      if(Math.floor(hours) !== hours) {
         minutes = 30;
       }
       key.setHours(hours,minutes,0,0);
       return key.toISOString();
     }
     function _formatHours(hours) {
-      return Math.floor(hours) == hours ? 
+      return Math.floor(hours) === hours ? 
                 hours + ':00' : 
                 Math.floor(hours) + ':30';
     }
@@ -106,8 +105,8 @@
 
       for (var i = $scope.events.length - 1; i >= 0; i--) {
         var event = $scope.events[i];
-        var s = new Date(event.start['dateTime']);
-        var e = new Date(event.end['dateTime']);
+        var s = new Date(event.start.dateTime);
+        var e = new Date(event.end.dateTime);
 
         var shours = s.getHours();
         var smin = s.getMinutes();
@@ -147,7 +146,7 @@
         var blocks = Math.abs(e - s) / 1.8e6;
         $scope.testEvents[s.toISOString()] = {blocks:blocks};
 
-      };
+      }
 
       $scope.dataReady      = true;
 
@@ -158,7 +157,7 @@
     function getWeekday(d, offset) {
       d = new Date(d);
       var day = d.getDay(),
-          diff = d.getDate() - day + (day == 0 ? -6:offset); // adjust when day is sunday
+          diff = d.getDate() - day + (day === 0 ? -6:offset); // adjust when day is sunday
       return new Date(d.setDate(diff));
     }
 
