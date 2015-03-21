@@ -13,3 +13,4 @@ tmp
 !bower.json
 initialize/
 *.db
+bdr-settings
