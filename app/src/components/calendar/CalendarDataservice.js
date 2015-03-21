@@ -15,7 +15,7 @@
     return { 
       loadAll: function() {
           var def = $q.defer();
-          $http.get('/assets/events.json')
+          $http.get('/api/v1/calendar')
             .success(function(data,status,headers,config) {
               def.resolve(data);
             })
