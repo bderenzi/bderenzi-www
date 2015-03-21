@@ -5,18 +5,16 @@
       <span class="pub-title" ng-bind-html="pub.title | titleCase | highlight:query"></span>
       <div>
         <span class="pub-author" ng-repeat="author in pub.authors" ng-class="{'author-me': author.me}">
-          <span ng-if="!$first">,</span>
-          <a ng-if="author.link" ng-href="{{author.link}}" ng-bind-html="author.name | highlight:query"></a>
-          <span ng-if="!author.link" ng-bind-html="author.name | highlight:query"></span>
+          <a ng-if="author.link" ng-href="{{author.link}}" ng-bind-html="author.name | highlight:query"></a><span ng-if="!author.link" ng-bind-html="author.name | highlight:query"></span><span ng-if="!$last">,&nbsp;</span>
         </span>
       </div>
       <div layout="row">
         <span ng-bind-html="pub.booktitle_short | highlight:query"></span>
-        <span ng-if="pub.award">&nbsp;|&nbsp;</span>
-        <span ng-if="pub.award" class="pub-award">{{pub.award}}</span>
-        <span ng-if="pub.total_papers_admitted">&nbsp;| Acceptance Rate: {{100*pub.total_papers_admitted/pub.total_papers_submitted | number:0}}% ({{pub.total_papers_admitted}}/{{pub.total_papers_submitted}})</span>
+        <span ng-if="isAvailable(pub.award)">&nbsp;|&nbsp;</span>
+        <span ng-if="isAvailable(pub.award)" class="pub-award">{{pub.award}}</span>
+        <span ng-if="isAvailable(pub.total_papers_admitted)">&nbsp;| Acceptance Rate: {{100*pub.total_papers_admitted/pub.total_papers_submitted | number:0}}% ({{pub.total_papers_admitted}}/{{pub.total_papers_submitted}})</span>
       </div>
-      <span ng-if="pub.keywords" class="pub-keywords">
+      <span ng-if="isAvailable(pub.keywords)" class="pub-keywords">
         keywords: <span ng-bind-html="pub.keywords | highlight:query"></span>
       </span>
     </div>
