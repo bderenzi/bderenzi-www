@@ -11,24 +11,25 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="assets/images/touch/chrome-touch-icon-192x192.png">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Brian DeRenzi">
-    <link rel="apple-touch-icon" href="assets/images/touch/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="assets/images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
+    <!-- build:css css/bderenzi.css -->
     <link rel="stylesheet" href="assets/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="styles/main.css">
-
+    <!-- endbuild -->
   </head>
 
-  <body ng-app="bdrApp" layout="column" ng-controller="MenuController">
+  <body ng-app="bdrApp" layout="column" ng-controller="MenuController" ng-strict-di> 
     <!--
          Use `flex` [below] to have the side bar and content area
          fill the available vertical display area
@@ -78,13 +79,16 @@
       </div>
     </div>
 
+    <!-- build:js scripts/angular-bundle.js -->
     <script src="assets/bower_components/angular/angular.js"></script>
     <script src="assets/bower_components/angular-route/angular-route.js"></script>
     <script src="assets/bower_components/angular-aria/angular-aria.js"></script>
     <script src="assets/bower_components/angular-animate/angular-animate.js"></script>
 
     <script src="assets/bower_components/angular-material/angular-material.js"></script>
+    <!-- endbuild -->
 
+    <!-- build:js scripts/bdr.js -->
     <script src="src/bdr.module.js"></script>
     <script src="src/bdr.routes.js"></script>
     
@@ -100,16 +104,17 @@
 
     <script src="src/components/publications/GroupbyFilter.js"></script>
     <script src="src/components/publications/HighlightFilter.js"></script>
+    <!-- endbuild -->
 
-     <script type="text/javascript">
+    <script type="text/javascript">
       angular
         .module('bdrApp', ['ngMaterial', 'bdr'])
-        .config(function($mdThemingProvider) {
-          // Use custom theme
-          $mdThemingProvider.theme('default')
-            .primaryPalette('blue')
-            .accentPalette('grey')
-        });
+        .config(['$mdThemingProvider', function($mdThemingProvider) {
+            // Use custom theme
+            $mdThemingProvider.theme('default')
+              .primaryPalette('blue')
+              .accentPalette('grey')
+          }]);
     </script>
 
 
