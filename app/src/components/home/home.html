@@ -1,14 +1,14 @@
 <div class="content-wrapper first-content" layout-gt-sm="row" layout-sm="column" layout-margin="2em">
   <div flex="33">
   <!-- padding: 60px 0 45px 0; -->
-    <div class="actionshot" hide-sm><img src="assets/images/bderenzi-action.jpg"></div>
+    <div class="actionshot" hide-sm><img src="images/bderenzi-action.jpg"></div>
     <md-list>
       <md-item ng-repeat="contact in contactInfo">
         <md-item-content>
           <div class="contact-item" ng-switch="!!contact.link">
-            <md-icon md-font-icon="bdr {{contact.icon}}"></md-icon>
-            <a href="{{contact.link}}" ng-switch-when="true" class="contact-link {{contact.textClass}}">{{contact.text}}</a>
-            <span href="{{contact.link}}" ng-switch-when="false" class="{{contact.textClass}}">{{contact.text}}</span>
+            <md-icon md-font-icon="bdr {{contact.icon}}"></md-icon>&nbsp;
+            <a ng-href="{{contact.link}}" ng-switch-when="true" class="contact-link" ng-class="contact.textClass">{{contact.text}}</a>
+            <span ng-switch-when="false" ng-class="contact.textClass">{{contact.text}}</span>
           </div>
         </md-item-content>
       </md-item>
@@ -21,5 +21,5 @@
   </div>
 </div>
 <div class="content-wrapper">
-  
+  <p>Project list coming soon</p>
 </div>
