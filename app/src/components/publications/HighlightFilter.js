@@ -9,7 +9,7 @@
    *
    */
   angular.module('bdr')
-    .filter('highlight', function($sce) {
+    .filter('highlight', ['$sce', function($sce) {
       return function(text, phrase) {
         if (phrase) {
           text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
@@ -17,7 +17,7 @@
         
         return $sce.trustAsHtml(text);
       };
-    })
+    }])
     .filter('titleCase', function() {
         // Inspired by: https://gist.github.com/maruf-nc/5625869
         // This doesn't work if it starts with "a" or "the". For that I'm 
