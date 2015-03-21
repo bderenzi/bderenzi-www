@@ -11,9 +11,9 @@
         },
         templateUrl:  'src/components/publications/publicationDirective.html',
         link:         function(scope, element, attrs, controllers) {
-          scope.isAvailable = function(item) {
-            return item && String(item) !== 'undefined';
-          }
+                        scope.isAvailable = function(item) {
+                          return item && String(item) !== 'undefined';
+                        };
         },
       };
     });
