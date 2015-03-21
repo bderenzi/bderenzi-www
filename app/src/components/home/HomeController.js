@@ -17,7 +17,7 @@
     var contactInfo = [
       {
         icon:       'bdr bdr-email',
-        text:       'bderenzi@gmail.com',
+        text:       'bderenzi@cs.uct.ac.za',
       }, {
         icon:       'bdr bdr-skype',
         text:       'brianderenzi',
