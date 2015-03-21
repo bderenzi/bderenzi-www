@@ -6,7 +6,7 @@ Install using `node`:
 
     npm install
 
-This will pulland install all of the required `nodejs` packages. It will also trigger `bower` to install dependencies.
+This will pull and install all of the required `nodejs` packages. It will also trigger `bower` to install dependencies.
 
 Build and test using  `'gulp'`:
 
