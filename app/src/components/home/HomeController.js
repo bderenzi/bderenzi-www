@@ -36,7 +36,7 @@
         link:       'http://academic.research.microsoft.com/Author/3563979/',  
       },{
         icon:       'bdr bdr-library',
-        text:       'Room 317 Comp Sci Building',
+        text:       'Room 306 Comp Sci Building',
         textClass:  'normal-case', 
       },{
         icon:       'bdr',
