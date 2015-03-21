@@ -20,14 +20,20 @@
 'use strict';
 
 // Include Gulp & Tools We'll Use
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
-var pagespeed = require('psi');
-var modRewrite = require('connect-modrewrite');
-var reload = browserSync.reload;
+var gulp        = require('gulp'),
+    $           = require('gulp-load-plugins')(),
+    del         = require('del'),
+    runSequence = require('run-sequence'),
+    browserSync = require('browser-sync'),
+    pagespeed   = require('psi'),
+    modRewrite  = require('connect-modrewrite'),
+    reload      = browserSync.reload;
+
+
+// we'd need a slight delay to reload browsers
+// connected to browser-sync after restarting nodemon
+var BROWSER_SYNC_RELOAD_DELAY = 500;
+
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -66,6 +72,7 @@ gulp.task('copy', function () {
   return gulp.src([
     'app/*',
     '!app/*.html',
+    '!app/assets',
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
@@ -75,7 +82,7 @@ gulp.task('copy', function () {
 
 // Copy Web Fonts To Dist
 gulp.task('fonts', function () {
-  return gulp.src(['app/fonts/**'])
+  return gulp.src(['app/assets/fonts/**'])
     .pipe(gulp.dest('dist/fonts'))
     .pipe($.size({title: 'fonts'}));
 });
@@ -86,7 +93,7 @@ gulp.task('styles', function () {
   return gulp.src([
     'app/assets/styles/*.scss',
     'app/assets/styles/**/*.css',
-    'app/assets/styles/components/components.scss'
+    // 'app/assets/styles/components/components.scss'
   ])
     .pipe($.sourcemaps.init())
     .pipe($.changed('.tmp/styles', {extension: '.css'}))
@@ -96,11 +103,12 @@ gulp.task('styles', function () {
     }))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp/styles'));
+    // Done in the HTML task...
     // Concatenate And Minify Styles
-    .pipe($.if('*.css', $.csso()))
-    .pipe(gulp.dest('dist/styles'))
-    .pipe($.size({title: 'styles'}));
+    // .pipe($.if('*.css', $.csso()))
+    // .pipe(gulp.dest('dist/styles'))
+    // .pipe($.size({title: 'styles'}));
 });
 
 // Scan Your HTML For Assets & Optimize Them
@@ -117,12 +125,23 @@ gulp.task('html', function () {
     .pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html',
-        'app/styleguide.html'
+        'app/src/**/*.html'
       ],
       // CSS Selectors for UnCSS to ignore
       ignore: [
-        // /.navdrawer-container.open/,
-        /.app-bar.open/
+        // My stuff
+        /bdr*/,
+        /.normal-case/,
+        /.filter/,
+        /.event/,
+        // Angular-Material styles
+        /.md-ripple/,
+        /.md-button/,
+        /layout/,
+        /flex/,
+        /md-sidenav/,
+        /md-content/,
+        /md-backdrop/,
       ]
     })))
     // Concatenate And Minify Styles
@@ -130,8 +149,9 @@ gulp.task('html', function () {
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
+    // Not sure what this does:
     // Update Production Style Guide Paths
-    .pipe($.replace('components/components.css', 'components/main.min.css'))
+    // .pipe($.replace('components/components.css', 'components/main.min.css'))
     // Minify Any HTML
     .pipe($.if('*.html', $.minifyHtml()))
     // Output Files
@@ -141,6 +161,33 @@ gulp.task('html', function () {
 
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
+
+
+// Node server
+gulp.task('nodemon', function (cb) {
+  var called = false;
+  return $.nodemon({
+
+    // nodemon our expressjs server
+    script: 'server.js',
+
+    // watch core server file(s) that require server restart on change
+    watch: ['server.js']
+  })
+    .on('start', function onStart() {
+      // ensure start only got called once
+      if (!called) { cb(); }
+      called = true;
+    })
+    .on('restart', function onRestart() {
+      // reload connected browsers after a slight delay
+      setTimeout(function reload() {
+        browserSync.reload({
+          stream: false   //
+        });
+      }, BROWSER_SYNC_RELOAD_DELAY);
+    });
+});
 
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles'], function () {
@@ -153,7 +200,7 @@ gulp.task('serve', ['styles'], function () {
     //       will present a certificate warning in the browser.
     // https: true,
     server: {
-      baseDir:    ['.tmp', 'app'],
+      baseDir:    ['.tmp', 'app', 'app/assets'],
       middleware: [ // Thanks: http://stackoverflow.com/questions/24474914/can-i-tell-browser-sync-to-always-use-one-html-file-for-html5mode-links
         modRewrite([
           '!\\.\\w+$ /index.html [L]'
@@ -163,7 +210,7 @@ gulp.task('serve', ['styles'], function () {
   });
 
   gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/assets/styles/**/*.{scss,css}'], ['styles', reload]);
+  // gulp.watch(['app/assets/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/src/**/*.js'], ['jshint']);
   gulp.watch(['app/assets/images/**/*'], reload);
 });
@@ -177,7 +224,14 @@ gulp.task('serve:dist', ['default'], function () {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist'
+    server: {
+      baseDir: 'dist',
+      middleware: [
+        modRewrite([
+          '!\\.\\w+$ /index.html [L]'
+        ])
+      ]
+    }
   });
 });
 

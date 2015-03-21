@@ -11,3 +11,5 @@ tmp
 *.bib
 !package.json
 !bower.json
+initialize/
+*.db
