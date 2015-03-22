@@ -14,6 +14,10 @@
                         scope.isAvailable = function(item) {
                           return item && String(item) !== 'undefined';
                         };
+
+                        scope.hasHighlight = function(text, query) {
+                          return text.replace(new RegExp('('+query+')', 'gi'), '').length !== text.length;
+                        };
         },
       };
     });
