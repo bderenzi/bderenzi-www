@@ -175,9 +175,35 @@ gulp.task('nodemon', function (cb) {
     script: 'server.js',
 
     // watch core server file(s) that require server restart on change
-    watch: ['server.js']
+    watch:  ['server.js'],
+    env:    {'NODE_ENV': 'development'}
   })
     .on('start', function onStart() {
+      // ensure start only got called once
+      if (!called) { cb(); }
+      called = true;
+    })
+    .on('restart', function onRestart() {
+      // reload connected browsers after a slight delay
+      setTimeout(function reload() {
+        browserSync.reload({
+          stream: false   //
+        });
+      }, BROWSER_SYNC_RELOAD_DELAY);
+    });
+});
+
+gulp.task('nodemon:dist', function (cb) {
+  var called = false;
+  return $.nodemon({
+
+    // nodemon our expressjs server
+    script: 'server.js',
+
+    // watch core server file(s) that require server restart on change
+    watch:  ['server.js'],
+    env:    {'NODE_ENV': 'production'}
+  })    .on('start', function onStart() {
       // ensure start only got called once
       if (!called) { cb(); }
       called = true;
