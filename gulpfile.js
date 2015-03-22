@@ -22,6 +22,7 @@
 // Include Gulp & Tools We'll Use
 var gulp        = require('gulp'),
     $           = require('gulp-load-plugins')(),
+    jpegoptim   = require('imagemin-jpegoptim'),
     del         = require('del'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync'),
@@ -61,7 +62,8 @@ gulp.task('images', function () {
   return gulp.src('app/assets/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
-      interlaced: true
+      interlaced: true,
+      use: [jpegoptim({size: '50%'})]
     })))
     .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}));
