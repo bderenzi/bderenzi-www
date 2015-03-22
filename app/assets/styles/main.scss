@@ -276,7 +276,7 @@ md-list .md-button {
   width:          100%; 
   text-transform: lowercase;
 }
-.contact-link{
+md-content a {
   color: darken($accent-color, 10%);
   text-decoration: none;
   &:visited {
