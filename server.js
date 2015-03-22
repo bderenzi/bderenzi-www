@@ -18,11 +18,17 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Setup static serve 
-// app.use(express.static(__dirname + '/app'));
-// app.use(express.static(__dirname + '/app/assets'));
-// app.use(express.static(__dirname + '/.tmp'));
-
-app.use(express.static(__dirname + '/dist'));
+var prefix = '/app/';
+if(app.get('env') === 'development') {
+  console.log('started development environment');
+  app.use(express.static(__dirname + '/app'));
+  app.use(express.static(__dirname + '/app/assets'));
+  app.use(express.static(__dirname + '/.tmp'));
+} else {
+  console.log('started production environment');
+  prefix = '/dist/';
+  app.use(express.static(__dirname + '/dist'));
+}
 
 
 
@@ -33,8 +39,7 @@ app.get('/admin', expressJwt({secret:jwtSecret}), function(err,req,res,next) {
     // not logged in
     console.log('login required');
   }
-  // res.sendFile(__dirname + '/app/admin.html');
-  res.sendFile(__dirname + '/dist/admin.html');
+  res.sendFile(__dirname + prefix + 'admin.html');
 });
 
 
@@ -69,11 +74,9 @@ app.get('/api/v1/publication', function(req, res){
 
 // Send the rest to angular
 app.get('*', function (req, res) {
-  // res.sendFile(__dirname + '/app/index.html');
-  res.sendFile(__dirname + '/dist/index.html');
+  res.sendFile(__dirname + prefix +'index.html');
 });
 
-// app.listen(2300);
 app.listen(8080);
 
 
