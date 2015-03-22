@@ -23,6 +23,7 @@
   <!-- links out for pubs -->
   <span layout="row" layout-align="end end" class="pub-assets">
     <md-button 
+      ng-href="{{pub.local_pdf}}"
       ng-click="$event.stopPropagation();" 
       aria-label="download paper">
       <i class="bdr bdr-cloud-download"></i>
