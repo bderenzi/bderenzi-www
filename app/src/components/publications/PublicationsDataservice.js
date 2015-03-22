@@ -16,8 +16,7 @@
     return { 
       loadAll: function() {
           var def = $q.defer();
-          // $http.get('/api/v1/publication')
-          $http.get('bderenzi_citations.json')
+          $http.get('/api/v1/publication')
             .success(function(data,status,headers,config) {
               def.resolve(data);
             })
