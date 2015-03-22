@@ -291,6 +291,11 @@ md-list .md-button {
   text-transform: none;
 }
 
+.bd-card {
+  background-color: white;
+  margin: 1.25em 0; 
+}
+
 div.research-interests {
   padding-left: 1em;
 }
@@ -299,13 +304,10 @@ div.research-interests {
   border-left: 2px solid $accent-color;
   padding-left: 0.5em;
   margin-bottom: 0.5em;
-  // box-shadow: 0px 3px 3px -3px #ccc;
-  // background-color: white;
 }
 
 /* home page */
 .project {
-  // background-color: rgb(243,243,243);
   background-color: white;
   margin: 1.25em 0;
   .proj-header {
