@@ -5,6 +5,7 @@ var express     = require('express'),
     bodyParser  = require('body-parser'),
     jwt         = require('jsonwebtoken'),
     expressJwt  = require('express-jwt'),
+    https       = require("https"),
     settings    = require('./bdr-settings');
     
 
@@ -56,10 +57,22 @@ app.post('/api/v1/login', authenticate, function (req, res) {
   res.send({user: {username: req.body.username}, token: token});
 });
 
+// console.log(settings.getCalendarOptions());
 app.get('/api/v1/calendar', function(req, res){
-  res.sendFile(__dirname + '/events.json');
-});
+  var data = '';
 
+  https.get(settings.getCalendarOptions(), function(googRes) {
+    googRes.on('data', function (chunk) {
+      data = data + chunk;
+    })
+    .on('end', function() {
+      res.send(data);
+    });
+    
+  }).on('error', function(e) {
+    res.send({error:e});
+  })
+});
 
 app.get('/api/v1/publication', function(req, res){
   db.all('select * from "publications"', function(err, row) {
