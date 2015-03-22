@@ -1,18 +1,29 @@
-<!-- <div class="content-wrapper first-content">
-  <h2>Selected Publications</h2>  
-</div> -->
-<div class="content-wrapper">
-  <div layout="row" layout-align="start center">
-    
-    <div flex="70" class="filter">
-      <input type="text" ng-model="query" placeholder="Search publications" aria-label="Filter"/>
+<!--
+
+TODO: 
+https://material.angularjs.org/#/api/material.components.autocomplete/directive/mdHighlightText
+
+ -->
+
+<md-toolbar md-scroll-shrink class="md-accent md-hue-1">
+  <div class="md-toolbar-tools">
+
+    <button aria-label="menu" ng-click="toggleSidenav('left')" hide-gt-md class="menuBtn">
+        <md-icon md-font-icon="bdr bdr-menu"></md-icon>
+    </button>
+
+    <div flex class="filter">
+      <md-input-container md-no-float="md-no-float">
+        <label>Search</label>
+        <input type="text" ng-model="query" aria-label="Filter" />
+      </md-input-container>
       <button type="button" ng-if="query" ng-click="clearFilter()">
         <md-icon md-svg-icon="cancel"></md-icon>
           <span class="visually-hidden">Clear</span>
       </button>
     </div>
 
-    <div flex="30" class="group-by">
+    <div class="group-by">
 
       <md-button class="md-raised" ng-class="{'md-primary': predicate=='pub_type','active': predicate=='pub_type'}" ng-click="predicate='pub_type'; reverse=false">
         Type
@@ -23,12 +34,16 @@
     </div>
 
   </div>
-</div>
+</md-toolbar>
 
-<div class="content-wrapper third-content">
-  <span ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate] " class="pub-wrapper">
-    <h2 ng-show="pub.group_by_CHANGED">{{pub[predicate]}}</h2>
-    <bdr-publication pub="pub" query="query"></bdr-publication>
-  </span>
 
-</div>
+<md-content flex>
+  <section layout="column" layout-padding>
+    <div flex>
+      <span ng-repeat="pub in publications | filter:query  | orderBy:predicate:reverse | groupBy:[predicate] " class="pub-wrapper">
+        <h2 ng-show="pub.group_by_CHANGED">{{pub[predicate]}}</h2>
+        <bdr-publication pub="pub" query="query"></bdr-publication>
+      </span>
+    </div>
+  </section>
+</md-content>

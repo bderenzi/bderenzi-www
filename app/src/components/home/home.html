@@ -1,26 +1,55 @@
-<div class="content-wrapper first-content" layout-gt-sm="row" layout-sm="column">
+<md-content flex>
+  <section layout="column" layout-padding>
+    <div flex>
 
-  <div flex="33" layout-margin="2em">
-    <div class="actionshot" hide-sm><img src="images/bderenzi-action.jpg"></div>
-    <md-list>
-      <md-item ng-repeat="contact in contactInfo">
-        <md-item-content>
-          <div class="contact-item" ng-switch="!!contact.link">
-            <md-icon md-font-icon="bdr {{contact.icon}}"></md-icon>&nbsp;
-            <a ng-href="{{contact.link}}" ng-switch-when="true" class="contact-link" ng-class="contact.textClass">{{contact.text}}</a>
-            <span ng-switch-when="false" ng-class="contact.textClass">{{contact.text}}</span>
+      <div class="md-whiteframe-z1 project" layout="column">
+        <div layout-gt-sm="row" layout-padding layout-sm="column">
+
+          <div flex="33">
+            <div class="responsive-img" hide-sm><img src="images/bderenzi-action.jpg"></div>
+            <md-list>
+              <md-item ng-repeat="contact in contactInfo">
+                <md-item-content>
+                  <div class="contact-item" ng-switch="!!contact.link">
+                    <md-icon md-font-icon="bdr {{contact.icon}}"></md-icon>&nbsp;
+                    <a ng-href="{{contact.link}}" ng-switch-when="true" class="contact-link" ng-class="contact.textClass">{{contact.text}}</a>
+                    <span ng-switch-when="false" ng-class="contact.textClass">{{contact.text}}</span>
+                  </div>
+                </md-item-content>
+              </md-item>
+            </md-list>
           </div>
-        </md-item-content>
-      </md-item>
-    </md-list>
-  </div>
 
-  <div flex="66"  layout-margin="2em">
-    <h1>Research Summary</h1>
-    <p>My work focuses on how technology can be applied to healthcare for underserved populations, to amplify the impact of limited resources. I have worked with stakeholders across the healthcare delivery continuum—clinicians, community health workers, and patients—to improve health services. My goal is to support and empower each of these groups with organizational and information tools that improve the health of their communities.</p>
-    <p>As technology becomes faster, cheaper, and more ubiquitous, its potential to address socially relevant issues increases exponentially. The data being collected within the health context allows us to design, deploy, and evaluate tools across the health system.</p>
-  </div>
-</div>
-<div class="content-wrapper">
-  <p>Project list coming soon</p>
-</div>
+          <div flex="66">
+            <h1 style="padding-top:0;">Research Summary</h1>
+            <p>My work focuses on how technology can be applied to healthcare for underserved populations, to amplify the impact of limited resources. I have worked with stakeholders across the healthcare delivery continuum—clinicians, community health workers, and patients—to improve health services. My goal is to support and empower each of these groups with organizational and information tools that improve the health of their communities.</p>
+            <p>As technology becomes faster, cheaper, and more ubiquitous, its potential to address socially relevant issues increases exponentially. The data being collected within the health context allows us to design, deploy, and evaluate tools across the health system.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <md-whiteframe layout="column" ng-repeat="project in projects" class="md-whiteframe-z1 project">
+        <div layout-gt-sm="row" layout-sm="column" class="proj-header" ng-click="project.showDesc = !project.showDesc">
+
+          <div flex="25" class="responsive-img">
+            <img src="{{project.thumb}}">
+            <div class="img-overlay" layout="column" layout-align="center center">
+              <i class="bdr" ng-class="{'bdr-add-circle':!project.showDesc,'bdr-remove-circle':project.showDesc,}"></i>
+            </div>
+          </div>
+
+          <div flex="75" class="proj-title">
+            <h2 ng-bind-html="project.title"></h2>
+            <span ng-bind-html="project.subtitle"></span>
+          </div>
+          
+        </div>
+        <div class="toggled-content" ng-show="project.showDesc">
+          <div ng-bind-html="project.description"></div>
+        </div>
+      </md-whiteframe>
+
+    </div>
+  </section>
+</md-content>

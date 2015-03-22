@@ -103,6 +103,11 @@
      */
     function processEvents() {
 
+      if(!$scope.events || !$scope.events.length) {
+        console.log('something went wrong with calendar data');
+        return;
+      }
+      
       for (var i = $scope.events.length - 1; i >= 0; i--) {
         var event = $scope.events[i];
         var s = new Date(event.start.dateTime);

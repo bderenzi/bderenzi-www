@@ -64,6 +64,7 @@ body.open {
   margin: 0px 16px;
   width: 36px;
   font-size: 36px;
+  min-height: 2em;
   md-icon {
     height:auto;
   }
@@ -209,7 +210,7 @@ md-list .md-button {
 
 /* Primary content area */
 
-.actionshot {
+.responsive-img {
   width: 100%;
   img {
     height: auto;
@@ -219,9 +220,13 @@ md-list .md-button {
 #content {
   overflow: hidden;
 }
+  // #content md-content div.second-content {
+  //   background-color: lightblue;
+  // }
   #content md-content div.first-content,
   #content md-content div.third-content {
     background-color: rgb(243, 243, 243);
+    // background-color: lightblue;
   }
   #content md-content div.first-content {
     a {
@@ -232,26 +237,27 @@ md-list .md-button {
       }
     }
 
-    &:after {
-      top: 100%;
-      border: solid transparent;
-      content: " ";
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-      border-color: rgba(8, 4, 13, 0);
-      border-top-color: #f3f3f3;
-      border-width: 30px;
-      left: 50%;
-      margin-left: -30px;
-      z-index: 1;
-    }
+    // &:after {
+    //   top: 100%;
+    //   border: solid transparent;
+    //   content: " ";
+    //   height: 0;
+    //   width: 0;
+    //   position: absolute;
+    //   pointer-events: none;
+    //   border-color: rgba(8, 4, 13, 0);
+    //   // border-top-color: white;
+    //   border-top-color: rgb(243, 243, 243);
+    //   border-width: 30px;
+    //   left: 50%;
+    //   margin-left: -30px;
+    //   z-index: 1;
+    // }
   }
   #content md-content div.content-wrapper {
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 60px;
+    // padding-top: 60px;
     padding-bottom: 3em;
   }
     #content .md-button.action {
@@ -293,9 +299,57 @@ div.research-interests {
   border-left: 2px solid $accent-color;
   padding-left: 0.5em;
   margin-bottom: 0.5em;
-  box-shadow: 0px 3px 3px -3px #ccc;
-  background-color: white;
+  // box-shadow: 0px 3px 3px -3px #ccc;
+  // background-color: white;
 }
+
+/* home page */
+.project {
+  // background-color: rgb(243,243,243);
+  background-color: white;
+  margin: 1.25em 0;
+  .proj-header {
+    cursor: pointer;
+  }
+
+  .proj-title {
+    padding: 0 1em;
+  }
+
+  .responsive-img {
+    position: relative;
+    overflow: hidden;
+
+    .img-overlay {
+      background-color: rgba(0,0,0,0.7);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      left:-102%;
+      -webkit-transition: left 0.5s;
+      -moz-transition: left 0.5s;
+      transition: left 0.5s;
+      i {
+        color: rgba(255,255,255,0.7);
+        font-size: 4em;
+        margin: auto auto;
+      }
+    }
+  }
+
+  &:hover .img-overlay {
+    left:0;
+
+    /* Set our transitions up. */
+    -webkit-transition: left 0.5s;
+    -moz-transition: left 0.5s;
+    transition: left 0.5s;
+  }
+
+}
+
 
 /* bio page */
 .position-dates {
@@ -380,30 +434,32 @@ md-card {
     padding: 0;
   }
 }
-.pub-abstract.ng-hide {
+.toggled-content.ng-hide {
 /* Initially we don't want any height, and we want the contents to be hidden */
   max-height: 0;
   overflow: hidden;
 
   /* Set our transitions up. */
   -webkit-transition: max-height 0.8s;
-  -moz-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s ;
   transition: max-height 0.8s;
+
 }
-.pub-abstract {
+.toggled-content {
   max-height: 500px;
   overflow: hidden;
 
    /* Set our transitions up. */
   -webkit-transition: max-height 0.8s;
-  -moz-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s ;
   transition: max-height 0.8s;
 
-  padding: 1.25em;
-
-  h2 {
-    border: none;
-    padding: 0;
+  div {
+    padding: 1.25em;
+    h2 {
+      border: none;
+      padding: 0;
+    }
   }
 }
 
@@ -469,30 +525,15 @@ md-card {
 }
 
 .filter {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  background-color: white;
-  border-radius: 2px;
   display: block;
   height: 40px;
   position: relative;
-  overflow: visible; }
-  .filter input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    box-shadow: none;
-    padding: 0 15px;
-    font-size: 14px;
-    line-height: 40px;
-    height: $pubsSearchHeight;
-    outline: none;
-    z-index: 2;
-    background: transparent; }
-    .filter input::-ms-clear {
-      display: none; }
+  overflow: visible; 
+  md-input-container {
+    top:-1em;
+    font-size:0.9em;
+  }
+}
   .filter button {
     position: absolute;
     top: 10px;

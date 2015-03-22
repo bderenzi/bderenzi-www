@@ -1,68 +1,92 @@
-<div class="content-wrapper first-content">
-  <h1>Bio</h1>
-  <div layout-gt-sm="row" layout-sm="column">
-    <div flex="75">
-      <p>Brian DeRenzi received his Ph.D. from <abbr title="Department of Computer Science &amp; Engineering">CSE</abbr> at the University of Washington (2011). His dissertation work focused on applying mobile technology to the problems of global health and development in low-income settings, with a focus on point of care tools for facility-based and Community Health Workers (CHWs) in East Africa. <a href="http://www.commcarehq.org">CommCare</a>, which Brian helped design and intially deploy, has been scaled up and used by over 40 organizations in more than 15 countries.</p>
-      <p>Brian's recent work has focused on the development of secondary services enabled by the influx of data supplied by mobile health tools. Examples include tools to explore automated data quality, automated reminders and supervision, and performance feedback for health workers. More generally Brian is interested in completing feedback loops within health systems and communities at large.</p>
-      <p>He is a <a href="http://www.iie.org/fulbright">Fulbright Scholar</a>, a recipient of the <a href="http://www.nsfgrfp.org/"><abbr title="National Science Foundation">NSF</abbr> Graduate Research Fellowship</a>, and a recipient of the <a href="http://www.cs.washington.edu/students/ta/bandes/">Bob Bandes Teaching Award</a>.</p>
-    </div>
+<md-content flex>
+  <section layout="column" layout-padding>
+    <div flex>
 
-    <div class='research-interests' flex="25">
-      <h3>Research Interests</h3>
-      <md-list>
-        <md-item ng-repeat="interest in reserachInterests">
-          <md-item-content>
-            <span>{{interest}}</span>
-          </md-item-content>
-        </md-item>
-      </md-list>
-    </div>
-  </div>
-</div>
-<div class="content-wrapper">
-  <div layout-gt-sm="row" layout-sm="column">
-    <div flex="50">
-      <h4>Research Positions</h4>
-      <md-list>
-        <md-item ng-repeat="p in positions | orderBy:'start':true">
-          <md-item-content>
-          <div layout="row" class="position-block">
-            <div class="position-dates">
-              <span>{{p.end}}</span><span>{{p.start}}</span>
-            </div>
-            <div flex class="position-content">
-              <h3>{{p.title}}</h3>
-              <p>
-                <em>{{p.institution}}</em><br>
-                {{p.department}}
-              </p>
+      <div class="md-whiteframe-z1 project" layout="column">
+        <div layout-padding layout="column">
+          <div flex>
+
+            <h1>Bio</h1>
+          
+            <div layout-gt-sm="row" layout-sm="column">
+              <div flex="75">
+                <p>Brian DeRenzi received his Ph.D. from
+                  <abbr title="Department of Computer Science &amp; Engineering">CSE</abbr> at the University of Washington (2011). His dissertation work focused on applying mobile technology to the problems of global health and development in low-income settings, with a focus on point of care tools for facility-based and Community Health Workers (CHWs) in East Africa. <a href="http://www.commcarehq.org">CommCare</a>, which Brian helped design and intially deploy, has been scaled up and used by over 40 organizations in more than 15 countries.</p>
+                <p>Brian's recent work has focused on the development of secondary services enabled by the influx of data supplied by mobile health tools. Examples include tools to explore automated data quality, automated reminders and supervision, and performance feedback for health workers. More generally Brian is interested in completing feedback loops within health systems and communities at large.</p>
+                <p>He is a <a href="http://www.iie.org/fulbright">Fulbright Scholar</a>, a recipient of the
+                  <a href="http://www.nsfgrfp.org/">
+                    <abbr title="National Science Foundation">NSF</abbr> Graduate Research Fellowship</a>, and a recipient of the <a href="http://www.cs.washington.edu/students/ta/bandes/">Bob Bandes Teaching Award</a>.</p>
+              </div>
+
+              <div flex="25" class="research-interests" >
+                <h3>Research Interests</h3>
+                <md-list>
+                  <md-item ng-repeat="interest in reserachInterests">
+                    <md-item-content class="md-whiteframe-z1">
+                      <span>{{interest}}</span>
+                    </md-item-content>
+                  </md-item>
+                </md-list>
+              </div>
+              
             </div>
           </div>
-          </md-item-content>
-        </md-item>
-      </md-list>
-    </div>
-    <div flex="50">
-      <h4>Education &amp; Training</h4>
-      <md-list>
-        <md-item ng-repeat="e in education | orderBy:'year':true">
-          <md-item-content>
-          <div class="education-block">
-            <div layout="row" class="education-dates">
-              <span>{{e.degree}}</span><span>{{e.year}}</span>
+        </div>
+      </div>
+
+      <div class="md-whiteframe-z1 project" layout="column" layout-padding>
+        <div flex>
+          <div layout-gt-sm="row" layout-sm="column" layout-align="center start">
+
+            <div flex>
+              <h4>Research Positions</h4>
+              <md-list>
+                <md-item ng-repeat="p in positions | orderBy:'start':true">
+                  <md-item-content>
+                    <div layout="row" class="position-block">
+                      <div class="position-dates">
+                        <span>{{p.end}}</span><span>{{p.start}}</span>
+                      </div>
+                      <div flex class="position-content">
+                        <h3>{{p.title}}</h3>
+                        <p>
+                          <em>{{p.institution}}</em>
+                          <br> {{p.department}}
+                        </p>
+                      </div>
+                    </div>
+                  </md-item-content>
+                </md-item>
+              </md-list>
             </div>
-          <div layout="row">
-            <div flex class="education-content">
-              <p>
-                <strong>{{e.department}}</strong><br>
-                {{e.institution}}
-              </p>
+
+            <div flex>
+              <h4>Education &amp; Training</h4>
+              <md-list>
+                <md-item ng-repeat="e in education | orderBy:'year':true">
+                  <md-item-content>
+                    <div class="education-block">
+                      <div layout="row" class="education-dates">
+                        <span>{{e.degree}}</span><span>{{e.year}}</span>
+                      </div>
+                      <div layout="row">
+                        <div flex class="education-content">
+                          <p>
+                            <strong>{{e.department}}</strong>
+                            <br> {{e.institution}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </md-item-content>
+                </md-item>
+              </md-list>
             </div>
-            </div>
+
           </div>
-          </md-item-content>
-        </md-item>
-      </md-list>
+        </div>
+      </div>
+
     </div>
-  </div>  
-</div>
+  </section>
+</md-content>

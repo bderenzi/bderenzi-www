@@ -134,7 +134,7 @@ gulp.task('html', function () {
         /.normal-case/,
         /.filter/,
         /.event/,
-        /.pub-abstract/,
+        /.toggled-content/,
         /.highlight/,
         /.author-me/,
         // Angular-Material styles
@@ -213,7 +213,7 @@ gulp.task('serve', ['styles'], function () {
   });
 
   gulp.watch(['app/**/*.html'], reload);
-  // gulp.watch(['app/assets/styles/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['app/assets/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/src/**/*.js'], ['jshint']);
   gulp.watch(['app/assets/images/**/*'], reload);
 });

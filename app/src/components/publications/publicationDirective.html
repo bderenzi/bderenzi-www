@@ -39,8 +39,10 @@
     </md-button>
   </span>
 
-  <div class="pub-abstract" ng-show="pub.showAbstract || hasHighlight(pub.abstract, query)">
-    <h2>Abstract</h2>
-    <div ng-bind-html="pub.abstract | highlight:query"></div>
+  <div class="toggled-content" ng-show="pub.showAbstract || hasHighlight(pub.abstract, query)">
+    <div>
+      <h2>Abstract</h2>
+      <div ng-bind-html="pub.abstract | highlight:query"></div>
+    </div>
   </div>
 </md-whiteframe>

@@ -1,58 +1,53 @@
-<div class="content-wrapper first-content">
-  <h1>Meet with me</h1>
-  <p>
-    I would be happy to talk to you if I can be helpful. The best thing to do is to <a href="https://calendly.com/bderenzi/30min/">schedule a 30 minute meeting</a> with me directly. Alternatively, take a look at the rough approximation of my schedule below to find times that would work for you.
-  </p>
-</div>
-
-<div class="content-wrapper">
-  <div layout="row" layout-align="start center" class="calendar-header">
-    <md-button class="" ng-click="monday = monday.addDays(-7)">&lt;</md-button>
-    <md-button 
-      class="md-raised" 
-      ng-class="{'md-primary':monday.toISOString()==originalMonday.toISOString(),'md-accent md-hue-2':monday.toISOString()!=originalMonday.toISOString()}" 
-      ng-click="monday = originalMonday">
-      This week
-    </md-button>
-    <md-button class="" ng-click="monday = monday.addDays(7)">&gt;</md-button>
-    <div flex>
-      {{monday | date:'MMM d'}} — {{monday.addDays(4) | date:'MMM d, yyyy'}}
-      <small>Times {{getTZString()}}</small>
+<md-content flex>
+  <section layout="column" layout-padding>
+    
+    <div class="md-whiteframe-z1 project" flex>
+      <h1>Meet with me</h1>
+      <p>
+        I would be happy to talk to you if I can be helpful. The best thing to do is to <a href="https://calendly.com/bderenzi/30min/">schedule a 30 minute meeting</a> with me directly. Alternatively, take a look at the rough approximation of my schedule below to find times that would work for you.
+      </p>
     </div>
-  </div>
 
-  <table class="calendar">
-    <thead>
-      
-      <tr class="major-row">
-        <td class="time"></td>
-        <td ng-repeat="day in range(0,4)">
-          {{monday.addDays(day) | date:'EEE d/M'}}
-        </td>
-      </tr>
+    <div class="md-whiteframe-z1 project" layout="column" layout-padding>
+      <div flex>
 
-    </thead>
-    <tbody>
-
-      <tr 
-        ng-repeat="hours in range(startTime,endTime-0.5,0.5)" 
-        ng-class-even="'major-row'" 
-        ng-class-odd ="'minor-row'">
-        <td class="time">
-          <span ng-if="$even">{{hours + ':00'}}</span>
-        </td>
-
-        <td ng-repeat="day in range(0,4)">
-          <span ng-show="!hasKey(day,hours)">{{getEventKey(day,hours)}}</span>
-          <div 
-            ng-show="hasKey(day,hours)"
-            class="event md-whiteframe-z1"
-            ng-style="{'height': getHeight(day, hours)}">
-            <div>{{getDisplayTime(day,hours)}}</div>
+        <div layout="row" layout-align="start center" class="calendar-header">
+          <md-button class="" ng-click="monday = monday.addDays(-7)">&lt;</md-button>
+          <md-button class="md-raised" ng-class="{'md-primary':monday.toISOString()==originalMonday.toISOString(),'md-accent md-hue-2':monday.toISOString()!=originalMonday.toISOString()}" ng-click="monday = originalMonday">
+            This week
+          </md-button>
+          <md-button class="" ng-click="monday = monday.addDays(7)">&gt;</md-button>
+          <div flex>
+            {{monday | date:'MMM d'}} — {{monday.addDays(4) | date:'MMM d, yyyy'}}
+            <small>Times {{getTZString()}}</small>
           </div>
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-</div>
+        </div>
+
+        <table class="calendar">
+          <thead>
+            <tr class="major-row">
+              <td class="time"></td>
+              <td ng-repeat="day in range(0,4)">
+                {{monday.addDays(day) | date:'EEE d/M'}}
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="hours in range(startTime,endTime-0.5,0.5)" ng-class-even="'major-row'" ng-class-odd="'minor-row'">
+              <td class="time">
+                <span ng-if="$even">{{hours + ':00'}}</span>
+              </td>
+              <td ng-repeat="day in range(0,4)">
+                <span ng-show="!hasKey(day,hours)">{{getEventKey(day,hours)}}</span>
+                <div ng-show="hasKey(day,hours)" class="event md-whiteframe-z1" ng-style="{'height': getHeight(day, hours)}">
+                  <div>{{getDisplayTime(day,hours)}}</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+</md-content>

@@ -71,11 +71,11 @@
       </md-sidenav>
 
       <div layout="column" flex class="content-wrapper" id="content">
-        <button aria-label="menu" ng-click="toggleSidenav('left')" hide-gt-md class="menuBtn">
+        <button aria-label="menu" ng-click="toggleSidenav('left')" hide-gt-md class="menuBtn" ng-hide="selected.link==='publications'">
           <md-icon md-font-icon="bdr bdr-menu"></md-icon>
         </button>
 
-        <md-content flex ng-view></md-content>
+        <div ng-view layout="column"></div>
       </div>
     </div>
 
@@ -114,6 +114,9 @@
             $mdThemingProvider.theme('default')
               .primaryPalette('blue')
               .accentPalette('grey')
+              .backgroundPalette('grey', {
+                'hue-3': '100' // HACK. https://github.com/angular/material/issues/1450
+            });
           }]);
     </script>
 
