@@ -5,7 +5,6 @@ var express     = require('express'),
     bodyParser  = require('body-parser'),
     jwt         = require('jsonwebtoken'),
     expressJwt  = require('express-jwt'),
-    compress    = require('compression'),
     settings    = require('./bdr-settings');
     
 
@@ -17,10 +16,6 @@ var app = express();
 // Connect middleware separately 
 app.use(cors());
 app.use(bodyParser.json());
-// gzip
-app.use(compress());
-// url encoding
-// app.use(express.urlencoded());
 
 // Setup static serve 
 // app.use(express.static(__dirname + '/app'));
