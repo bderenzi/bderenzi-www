@@ -20,16 +20,17 @@
     }])
     .filter('titleCase', function() {
         // Inspired by: https://gist.github.com/maruf-nc/5625869
-        // This doesn't work if it starts with "a" or "the". For that I'm 
-        // using CSS to style the :first-letter
         return function(str) {
           var smallwords = ['a','an','and','as','at','but','by','en','for','if','in','nor','of','on','or','per','the','to','vs','via',];
-          return (str === undefined || str === null) ? '' : str.replace(/_|-/, ' ').replace(/\w\S*/g, function(txt){
+          var bigwords = ['IMCI','SMS','CHW',];
+          return (str === undefined || str === null) ? '' : str.charAt(0).toUpperCase() + str.replace(/_|-/, ' ').replace(/\w\S*/g, function(txt){
             if(smallwords.indexOf(txt.toLowerCase()) >= 0){
               return txt.toLowerCase();
+            } else if(bigwords.indexOf(txt.toUpperCase()) >= 0){
+              return txt.toUpperCase();
             }
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-          });
+          }).substr(1);
         };
     });
 })();
