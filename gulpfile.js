@@ -143,6 +143,7 @@ gulp.task('html', function () {
         /layout/,
         /flex/,
         /md-sidenav/,
+        /md-input-container/,
         /md-content/,
         /md-backdrop/,
       ]
@@ -193,7 +194,7 @@ gulp.task('nodemon', function (cb) {
     });
 });
 
-gulp.task('nodemon:dist', function (cb) {
+gulp.task('nodemon:dist', ['default'], function (cb) {
   var called = false;
   return $.nodemon({
 
