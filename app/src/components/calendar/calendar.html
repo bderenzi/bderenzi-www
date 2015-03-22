@@ -13,7 +13,12 @@
 
         <div layout="row" layout-align="start center" class="calendar-header">
           <md-button class="" ng-click="monday = monday.addDays(-7)">&lt;</md-button>
-          <md-button class="md-raised" ng-class="{'md-primary':monday.toISOString()==originalMonday.toISOString(),'md-accent md-hue-2':monday.toISOString()!=originalMonday.toISOString()}" ng-click="monday = originalMonday">
+          <md-button 
+            class="md-raised" 
+            ng-class="{
+              'md-primary':         datesMatch(monday,originalMonday),
+              'md-accent md-hue-2':!datesMatch(monday,originalMonday)}" 
+            ng-click="monday = originalMonday">
             This week
           </md-button>
           <md-button class="" ng-click="monday = monday.addDays(7)">&gt;</md-button>

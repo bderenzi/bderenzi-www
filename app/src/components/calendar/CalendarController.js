@@ -24,6 +24,7 @@
     $scope.dataReady      = false;
 
     // Fns
+    $scope.datesMatch     = datesMatch; 
     $scope.range          = range; 
     $scope.hasKey         = hasKey; 
     $scope.getHeight      = getHeight; 
@@ -42,6 +43,12 @@
 
 
     // Exported functions
+    function datesMatch(d1, d2) {
+      return  (d1.getDate() == d2.getDate()) && 
+              (d1.getMonth() == d2.getMonth()) &&
+              (d1.getFullYear() == d2.getFullYear());
+    }
+
     function getTZString() {
       var tz = -1*$scope.monday.getTimezoneOffset()/60;
       return tz < 0 ? 'GMT'+tz+':00' : 'GMT+'+tz+':00';
