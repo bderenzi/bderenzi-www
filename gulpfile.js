@@ -135,6 +135,7 @@ gulp.task('html', function () {
         /.filter/,
         /.event/,
         /.pub-abstract/,
+        /.highlight/,
         // Angular-Material styles
         /.md-ripple/,
         /.md-button/,
