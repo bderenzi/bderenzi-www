@@ -19,7 +19,7 @@
     $scope.startTime      = 8;
     $scope.endTime        = 18;
     $scope.monday         = getWeekday(new Date(), MONDAY);
-    $scope.originalMonday = getWeekday(new Date(), MONDAY);
+    $scope.originalMonday = new Date($scope.monday);
     $scope.testEvents     = {};
     $scope.dataReady      = false;
 
