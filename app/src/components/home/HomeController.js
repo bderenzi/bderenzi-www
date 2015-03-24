@@ -22,10 +22,10 @@
         icon:       'bdr bdr-skype',
         text:       'brianderenzi',
         link:       'skpe:brianderenzi?userinfo',
-      }, {
-        icon:       'bdr bdr-linkedin',
-        text:       'linkedin.com/in/bderenzi',
-        link:       'http://www.linkedin.com/in/bderenzi',  
+      // }, {
+      //   icon:       'bdr bdr-linkedin',
+      //   text:       'linkedin.com/in/bderenzi',
+      //   link:       'http://www.linkedin.com/in/bderenzi',  
       },{
         icon:       'bdr bdr-google-scholar',
         text:       'Google Scholar',
@@ -36,23 +36,23 @@
         link:       'http://academic.research.microsoft.com/Author/3563979/',  
       },{
         icon:       'bdr bdr-library',
-        text:       'Room 306 Comp Sci Building',
+        text:       'Room 306',
         textClass:  'normal-case', 
       },{
         icon:       'bdr',
-        text:       '18 University Avenue',
+        text:       'Computer Science Building',
         textClass:  'normal-case', 
       },{
         icon:       'bdr ',
         text:       'University of Cape Town',
         textClass:  'normal-case', 
+      // },{
+      //   icon:       'bdr ',
+      //   text:       'Rondebosch',
+      //   textClass:  'normal-case', 
       },{
         icon:       'bdr ',
-        text:       'Rondebosch',
-        textClass:  'normal-case', 
-      },{
-        icon:       'bdr ',
-        text:       'Cape Town, South Africa',
+        text:       'South Africa',
         textClass:  'normal-case', 
       },
     ];
