@@ -35,7 +35,8 @@
         icon:       'bdr bdr-file-download',
         text:       'Download CV', 
         highlight:  true,
-        link:       'xxx',  
+        download:   true,
+        link:       'downloads/bderenzi-cv.pdf',  
       },
     ];
 

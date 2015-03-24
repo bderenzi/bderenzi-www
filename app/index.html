@@ -47,16 +47,20 @@
           </div>
           <md-item ng-repeat="it in navItems">
             <md-item-content>
-              <md-button href="/{{it.link}}" ng-class="{'selected' : it === selected, 'nav-item-highlight': it.highlight}" class="nav-item" >
+              <md-button 
+                href="/{{it.link}}" 
+                target="{{it.download ? '_blank' : ''}}" 
+                ng-class="{'selected' : it === selected, 'nav-item-highlight': it.highlight}" 
+                class="nav-item" >
                 <md-icon md-font-icon="{{it.icon}}" class="nav-icon" ></md-icon>
                 <div class="nav-text">{{it.text}}</div>
               </md-button>
             </md-item-content>
           </md-item>
           <md-item layout="row" class="social-icons">
-              <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi">
+              <!-- <md-button aria-label="google-plus" href="http://google.com/+BrianDeRenzi">
                 <md-icon md-font-icon="bdr bdr-google-plus"></md-icon>
-              </md-button>
+              </md-button> -->
               <!-- <md-button aria-label="flickr" href="http://www.flickr.com/photos/bderenzi/">
                 <md-icon md-font-icon="bdr bdr-flickr2"></md-icon>
               </md-button> -->
