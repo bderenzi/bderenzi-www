@@ -24,12 +24,14 @@
   <span layout="row" layout-align="end end" class="pub-assets">
     <md-button 
       ng-href="{{pub.local_pdf}}"
+      target="_blank"
       ng-click="$event.stopPropagation();" 
       aria-label="download paper">
       <i class="bdr bdr-cloud-download"></i>
     </md-button>
     <md-button 
-      ng-href="{{pub.url}}" 
+      ng-href="{{pub.url}}"
+      target="_blank"
       ng-click="$event.stopPropagation();"
       aria-label="view doi">
       <i class="bdr bdr-books"></i>
