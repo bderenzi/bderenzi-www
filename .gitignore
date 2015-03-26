@@ -14,3 +14,4 @@ tmp
 initialize/
 *.db
 bdr-settings
+bdr-google-analytics.js

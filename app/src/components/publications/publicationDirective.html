@@ -25,7 +25,11 @@
     <md-button 
       ng-href="{{pub.local_pdf}}"
       target="_blank"
-      ng-click="$event.stopPropagation();" 
+      ng-click="$event.stopPropagation();"
+      analytics-on="click"
+      analytics-event="Download"
+      analytics-category="Publication download"
+      analytics-label="{{pub.local_pdf}}"
       aria-label="download paper">
       <i class="bdr bdr-cloud-download"></i>
     </md-button>
@@ -33,6 +37,10 @@
       ng-href="{{pub.url}}"
       target="_blank"
       ng-click="$event.stopPropagation();"
+      analytics-on="click"
+      analytics-event="External Link"
+      analytics-category="DOI link"
+      analytics-label="{{pub.local_pdf}}"
       aria-label="view doi">
       <i class="bdr bdr-books"></i>
     </md-button>
