@@ -16,8 +16,12 @@
     // Local variables
     var me          = 'DeRenzi';
     var authorSites = {
+      anderson:   'http://www.cs.washington.edu/people/faculty/anderson',
+      dell:       'http://www.nixdell.com/',
       birnbaum:   'http://www.bbirnbaum.com/',
       borriello:  'http://homes.cs.washington.edu/~gaetano/',
+      brunskill:  'http://www.cs.cmu.edu/~ebrun/',
+      blumenstock:'http://www.jblumenstock.com/',
       findlater:  'http://terpconnect.umd.edu/~leahkf/',
       parikh:     'http://people.ischool.berkeley.edu/~parikh/',
       anokwa:     'http://www.anokwa.com/',
